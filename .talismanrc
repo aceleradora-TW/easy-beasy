@@ -1,0 +1,19 @@
+fileignoreconfig:
+- filename: src/main/resources/db/migration/V1__Create_pessoa_table.sql
+  checksum: 88ccb8ca25206145f382e7f036adeceb39534c564a918bea7b7f65946f221c79
+  ignore_detectors: []
+- filename: src/main/resources/templates/layout.html
+  checksum: 4aea958555423ecfba6b12607e2891530d33cf7e518d3154366ac030743153e2
+  ignore_detectors: []
+- filename: README.md
+  checksum: be0354d4a85b877e191dc16506c2d65c704c68ca4893b5da9d89f914c6f6dfcf
+  ignore_detectors: []
+- filename: banco
+  checksum: 46a3c2d485e75d73dae8288f7fba083c960f61b77ff1732421cdabcb0d3647af
+  ignore_detectors: []
+- filename: src/main/resources/application-dev.yml
+  checksum: 28448a5915d74571703a3819d1c0fb56a2b7e9f1b92fddcd57f73f9adf3a388a
+  ignore_detectors: []
+- filename: src/main/resources/application-heroku.yml
+  checksum: bce0316b3d5eb97b9f9dac9f8fde3521c562a8874d4fc8b72a71a727a7699628
+  ignore_detectors: []
