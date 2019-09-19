@@ -16,12 +16,19 @@ public class Sintoma {
         this.indicios = Arrays.asList(indicios);
     }
 
-    public boolean resolvido() {
-        return indicios.stream().allMatch(Indicio::foiAveriguado);
+//    TODO: Se todos os indicios forem confirmados, este sintoma deveria deixar de ser diagnosticado. Este metodo
+//          nao preve a possibilidade de todos os indicios serem confirmados.
+//              confirmado != finalizado
+    public boolean foiConfirmado() {
+        return indicios.stream().anyMatch(Indicio::foiNegado);
     }
 
     public Indicio getIndicio(int index) {
         return indicios.get(index);
+    }
+
+    public Indicio proximoIndicioNaoAveriguado() {
+        return indicios.stream().filter(Indicio::naoFoiAveriguado).findFirst().get();
     }
 }
 
