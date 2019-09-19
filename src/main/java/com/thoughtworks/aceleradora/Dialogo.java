@@ -11,7 +11,6 @@ public class Dialogo {
     private final Consumer<String> receptorDeSaida;
 
     public Dialogo(Supplier<String> provedorDeEntrada, Consumer<String> receptorDeSaida) {
-
         this.provedorDeEntrada = provedorDeEntrada;
         this.receptorDeSaida = receptorDeSaida;
     }

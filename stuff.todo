@@ -1,4 +1,6 @@
 
+- [ ] Implementar a representacao de uma solucao para um sintoma. Faz sentido ser um atributo da classe Sintoma? Os padroes Either ou Maybe
+  se aplicam a este caso? Ja que Talvez haja uma solucao para um problema?
 - [ ] Implementar logica de perguntas coletoras
 - [ ] Corrigir problema de sintoma nao confirmado (ver TODOs do codigo)
 - [ ] O nome indicio obriga a inverter a logica do pensamento (a "negacao" de um indicio implica a "confirmacao" de um sintoma, fica
