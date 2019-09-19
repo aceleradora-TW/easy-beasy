@@ -1,0 +1,5 @@
+
+- [ ] Implementar logica de perguntas coletoras
+- [ ] Corrigir problema de sintoma nao confirmado (ver TODOs do codigo)
+- [ ] O nome indicio obriga a inverter a logica do pensamento (a "negacao" de um indicio implica a "confirmacao" de um sintoma, fica
+  confuso). Talvez Confirmacao seja um nome melhor?
