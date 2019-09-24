@@ -73,11 +73,41 @@ public class App {
 
         if (resp.equals("S")){
             System.out.println(" CABEÇA - Você tem uma organização de tempo e tarefas?\n");
+            respP = in.nextLine();
+                if (respP.equals("N")){
+                System.out.println(" Identificamos que você tem problema na organização da sua empresa \n " +
+                                   "Acesse o link www.easybeasy.com.br/solucao-organização \n para obter a solução");
+                }
+                    if(respP.equals("S")){
+                    System.out.println(" VALIDAÇÃO 1 - Você tem uma organização de tempo e tarefas?\n");
+                    respP = in.nextLine();
+                        if (respP.equals("N")){
+                        System.out.println(" Identificamos que você tem problema na organização da sua empresa \n " +
+                                           "Acesse o link www.easybeasy.com.br/solucao-organização \n para obter a solução");
+                        }
+                           if(respP.equals("S")){
+                           System.out.println(" VALIDAÇÃO 2 - Você organiza a semana em tarefas e metas a serem cumpridas?\n");
+                           respP = in.nextLine();
+                                if (respP.equals("N")){
+                                System.out.println(" Identificamos que você tem problema na organização da sua empresa \n " +
+                                                   "Acesse o link www.easybeasy.com.br/solucao-organização \n para obter a solução");
+                                }
+                                   if(respP.equals("S")){
+                                   System.out.println(" VALIDAÇÃO 3 - Você utiliza alguma ferramenta ou estratégia para organizar a sua semana?\n");
+                                   respP = in.nextLine();
+                                       if (respP.equals("N")){
+                                           System.out.println(" Identificamos que você tem problema na organização da sua empresa \n " +
+                                                              "Acesse o link www.easybeasy.com.br/solucao-organização \n para obter a solução");
+                                       }
+                    }
+                }
+
+            }
 
         }
 
 
-        return "";
+        return " SEGUE O FLUXO! ";
 
     }
 
