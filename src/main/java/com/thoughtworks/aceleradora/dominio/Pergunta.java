@@ -2,9 +2,9 @@ package com.thoughtworks.aceleradora.dominio;
 
 public class Pergunta {
     private String descricao;
-    private String tipo;
+    private Tipo tipo;
 
-    public Pergunta(String descricao, String tipo) {
+    public Pergunta(String descricao, Tipo tipo) {
         this.descricao = descricao;
         this.tipo = tipo;
     }
@@ -17,9 +17,7 @@ public class Pergunta {
         this.descricao = descricao;
     }
 
-    public String getTipo() {
+    public Tipo getTipo() {
         return tipo;
     }
-
-
 }
