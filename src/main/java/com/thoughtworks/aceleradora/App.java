@@ -26,31 +26,68 @@ public class App {
             if (!resposta.equalsIgnoreCase(nao) && !resposta.equalsIgnoreCase(sim)) {
                 System.out.println("Resposta inválida, responda com S ou N");
             }
+
         } while (!resposta.equalsIgnoreCase(nao) && !resposta.equalsIgnoreCase(sim));
 
         if (resposta.equalsIgnoreCase(nao)) {
             System.out.println("Parabens");
-
         } else if (resposta.equalsIgnoreCase(sim)) {
             System.out.println("Voce identifica problemas financeiros?");
+
             do {
                 resposta = scanner.nextLine();
                 if (!resposta.equalsIgnoreCase(nao) && !resposta.equalsIgnoreCase(sim)) {
                     System.out.println("Resposta inválida, responda com S ou N");
                 }
             } while (!resposta.equalsIgnoreCase(nao) && !resposta.equalsIgnoreCase(sim));
+
             if (resposta.equalsIgnoreCase(nao)) {
                 System.out.println("Parabens");
 
-            }
-            else if(resposta.equalsIgnoreCase(sim)){
-                System.out.println("Deseja ser redirecionado para as perguntas de financeiro?");
+            } else if (resposta.equalsIgnoreCase(sim)) {
+                System.out.println("Você controla as despesas da sua empresa?");
 
-            }
+                do {
+                    resposta = scanner.nextLine();
+                    if (!resposta.equalsIgnoreCase(nao) && !resposta.equalsIgnoreCase(sim)) {
+                        System.out.println("Resposta inválida, responda com S ou N");
+                    }
+                } while (!resposta.equalsIgnoreCase(nao) && !resposta.equalsIgnoreCase(sim));
 
+                if (resposta.equalsIgnoreCase(nao)) {
+                    System.out.println("Solução-------------------------------------------------------------------------------------------------");
+
+                } else if (resposta.equalsIgnoreCase(sim)) {
+                    System.out.println("As horas de trabalho são orçadas?");
+                    do {
+                        resposta = scanner.nextLine();
+                        if (!resposta.equalsIgnoreCase(nao) && !resposta.equalsIgnoreCase(sim)) {
+                            System.out.println("Resposta inválida, responda com S ou N");
+                        }
+                    } while (!resposta.equalsIgnoreCase(nao) && !resposta.equalsIgnoreCase(sim));
+
+                    if (resposta.equalsIgnoreCase(nao)) {
+                        System.out.println("Solução-------------------------------------------------------------------------------------------------");
+
+                    } else if (resposta.equalsIgnoreCase(sim)) {
+                        System.out.println("Você sabe os preços fixos e variaveis da sua empresa?");
+                        do {
+                            resposta = scanner.nextLine();
+                            if (!resposta.equalsIgnoreCase(nao) && !resposta.equalsIgnoreCase(sim)) {
+                                System.out.println("Resposta inválida, responda com S ou N");
+                            }
+                        } while (!resposta.equalsIgnoreCase(nao) && !resposta.equalsIgnoreCase(sim));
+
+                        if (resposta.equalsIgnoreCase(nao)) {
+                            System.out.println("Solução-------------------------------------------------------------------------------------------------");
+
+                        } else if (resposta.equalsIgnoreCase(sim)) {
+                            System.out.println("Não identificamos um problema no momento.");
+
+                        }
+                    }
+                }
+            }
         }
-
     }
-
-
 }
