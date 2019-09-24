@@ -84,6 +84,7 @@ public class App {
 
         return " ";
     }
+
     public static String perguntasOrg(String resp){
         Scanner in = new Scanner(System.in);
         String respP = "";
