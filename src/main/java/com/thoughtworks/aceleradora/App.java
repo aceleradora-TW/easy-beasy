@@ -23,23 +23,34 @@ public class App {
 
         do {
             resposta = scanner.nextLine();
-            if(!resposta.equalsIgnoreCase(nao) && !resposta.equalsIgnoreCase(sim)){
+            if (!resposta.equalsIgnoreCase(nao) && !resposta.equalsIgnoreCase(sim)) {
                 System.out.println("Resposta inválida, responda com S ou N");
             }
-           } while (!resposta.equalsIgnoreCase(nao) && !resposta.equalsIgnoreCase(sim));
-                                                                               
+        } while (!resposta.equalsIgnoreCase(nao) && !resposta.equalsIgnoreCase(sim));
+
         if (resposta.equalsIgnoreCase(nao)) {
+            System.out.println("Parabens");
+
+        } else if (resposta.equalsIgnoreCase(sim)) {
+            System.out.println("Voce identifica problemas financeiros?");
+            do {
+                resposta = scanner.nextLine();
+                if (!resposta.equalsIgnoreCase(nao) && !resposta.equalsIgnoreCase(sim)) {
+                    System.out.println("Resposta inválida, responda com S ou N");
+                }
+            } while (!resposta.equalsIgnoreCase(nao) && !resposta.equalsIgnoreCase(sim));
+            if (resposta.equalsIgnoreCase(nao)) {
                 System.out.println("Parabens");
 
             }
-            else if(resposta.equalsIgnoreCase(sim)) {
-                    System.out.println("Voce identifica problemas financeiros?");
-                }
+            else if(resposta.equalsIgnoreCase(sim)){
+                System.out.println("Deseja ser redirecionado para as perguntas de financeiro?");
+
             }
 
-        {
-            System.out.println("Não identificado");
         }
 
-
     }
+
+
+}
