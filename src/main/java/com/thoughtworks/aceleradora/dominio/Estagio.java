@@ -6,5 +6,5 @@ import java.util.List;
 public class Estagio {
 
     private List<Pergunta> perguntas= new ArrayList<>();
-
+    private String solucao;
 }
