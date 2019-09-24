@@ -39,7 +39,7 @@ public class App {
                         resp = in.nextLine();
                         if (resp.equals("S")){
                            // perguntasFinanceiro(resp);
-                            System.out.println(" EM CONTRUÇÃO !!!!");
+                            System.out.println(" EM CONSTRUÇÃO !!!!");
                         }
                     }
                 }
