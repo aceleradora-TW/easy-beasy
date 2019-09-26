@@ -1,6 +1,7 @@
 package com.thoughtworks.aceleradora;
 
 import com.thoughtworks.aceleradora.dominio.Diagnostico;
+import com.thoughtworks.aceleradora.dominio.GerenciadorNivel;
 import com.thoughtworks.aceleradora.dominio.Nivel;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,31 +11,35 @@ import java.util.Scanner;
 @SpringBootApplication
 public class App {
 
-    public static void gerenciarNiveis() {
-
-
-//        switch (opcao) {
-//            case 1:
-//                novoNivel.criaNivel();
-//        }
-    }
 
     public static void main(String[] args) {
-        //SpringApplication.run(App.class, args);
         Scanner entrada = new Scanner(System.in);
 
         Diagnostico novoDiagnostico = new Diagnostico();
         Nivel novoNivel = new Nivel();
 
-        System.out.println("Boas vindas, {Administrador}");
+        GerenciadorNivel gerenciadorNivel = new GerenciadorNivel(novoDiagnostico);
 
+        System.out.println("Boas vindas, {Administrador}");
         int opcao;
 
-        System.out.println("1 - Gerenciar niveis.");
-        opcao = entrada.nextInt();
+        do {
+            System.out.println("1 - Gerenciar niveis.");
+            System.out.println("0 - Sair.");
+            opcao = entrada.nextInt();
 
-        switch (opcao) {
-            case 1:
-        }
+            switch (opcao) {
+                case 1:
+                    gerenciadorNivel.menuNivel();
+                    break;
+                case 0:
+                    System.out.println("Saindo do menu.");
+                    break;
+                default:
+                    System.out.println("Opção inválida.");
+                    break;
+            }
+        }while(opcao!=0);
+
     }
 }

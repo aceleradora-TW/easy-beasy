@@ -27,10 +27,4 @@ public class Nivel {
     public List<Subnivel> getSubnivel() {
         return subnivel;
     }
-
-    public void criaNivel(int ordem, String nome) {
-        Nivel novoNivel = new Nivel(ordem, nome);
-    }
 }
-
-

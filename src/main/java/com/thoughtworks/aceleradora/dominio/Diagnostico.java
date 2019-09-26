@@ -13,9 +13,4 @@ public class Diagnostico {
     public List<Nivel> getNivel(){
         return nivel;
     }
-
-    public void adicionarNivel(Nivel novoNivel){
-        nivel.add(novoNivel);
-    }
-
 }
