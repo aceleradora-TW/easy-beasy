@@ -28,6 +28,36 @@ public class GerenciadorNivel {
         return lista;
     }
 
+    public String editarNivel(){
+        System.out.println(listarNiveis());
+        System.out.println("Digite o nome do nível que você quer editar");
+        String nomeEscolhido = entrada.nextLine();
+
+        Nivel antigoNivel = null;
+
+        for(Nivel nivel: novoDiagnostico.getNivel()){
+            if(nivel.getNome().equals(nomeEscolhido)){
+                antigoNivel = (Nivel) nivel.clone();
+                System.out.println("Você deseja alterar a ordem ou o nome?");
+                System.out.println("1 - Alterar ordem");
+                System.out.println("2 - Alterar nome");
+                int resp = entrada.nextInt();
+                if (resp == 1){
+                    System.out.println("Informe a nova ordem");
+                    int novaOrdem = entrada.nextInt();
+                    nivel.setOrdem(novaOrdem);
+                }
+
+                else if (resp == 2){
+                    System.out.println("Informe o novo nome");
+                    String novoNome = entrada.nextLine();
+                    nivel.setNome(novoNome);
+                }
+            }
+        }
+        return antigoNivel.toString();
+    }
+
     public void menuNivel() {
         int opcao;
         do {
