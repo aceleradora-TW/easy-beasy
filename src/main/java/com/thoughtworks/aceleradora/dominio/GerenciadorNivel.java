@@ -29,23 +29,36 @@ public class GerenciadorNivel {
     }
 
     public void menuNivel() {
-        System.out.println("Digite a opção desejada");
-        System.out.println("1 - Criar nível");
-        int opcao = entrada.nextInt();
+        int opcao;
+        do {
+            System.out.println("Digite a opção desejada");
+            System.out.println("1 - Criar nível");
+            System.out.println("2 - Listar níveis criados");
+            System.out.println("0 - Sair");
+            opcao = entrada.nextInt();
 
-        switch (opcao) {
-            case 1:
-                System.out.println("Digite a ordem");
-                int ordem = entrada.nextInt();
-                entrada.nextLine();
+            switch (opcao) {
+                case 1:
+                    System.out.println("Digite a ordem");
+                    int ordem = entrada.nextInt();
+                    entrada.nextLine();
 
-                System.out.println("Digite o nome do nível");
-                String nome = entrada.nextLine();
+                    System.out.println("Digite o nome do nível");
+                    String nome = entrada.nextLine();
 
-                adicionarNivel(criaNivel(ordem, nome));
-                System.out.println(listarNiveis());
-                break;
-        }
+                    adicionarNivel(criaNivel(ordem, nome));
+                    break;
+                case 2:
+                    System.out.println(listarNiveis());
+                    break;
+                case 0:
+                    System.out.println("Retornando ao menu inicial");
+                    break;
+                default:
+                    System.out.println("Opção inválida");
+                    break;
+            }
+        } while (opcao != 0);
     }
 }
 
