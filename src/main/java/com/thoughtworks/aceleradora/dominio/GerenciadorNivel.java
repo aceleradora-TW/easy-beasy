@@ -41,21 +41,21 @@ public class GerenciadorNivel {
                 System.out.println("Você deseja alterar a ordem ou o nome?");
                 System.out.println("1 - Alterar ordem");
                 System.out.println("2 - Alterar nome");
-                int resp = entrada.nextInt();
-                if (resp == 1){
+                int resposta = entrada.nextInt();
+                entrada.nextLine();
+                if (resposta == 1){
                     System.out.println("Informe a nova ordem");
                     int novaOrdem = entrada.nextInt();
                     nivel.setOrdem(novaOrdem);
                 }
-
-                else if (resp == 2){
+                else if (resposta == 2){
                     System.out.println("Informe o novo nome");
                     String novoNome = entrada.nextLine();
                     nivel.setNome(novoNome);
                 }
             }
         }
-        return antigoNivel.toString();
+        return String.valueOf(antigoNivel);
     }
 
     public void menuNivel() {
@@ -64,8 +64,10 @@ public class GerenciadorNivel {
             System.out.println("Digite a opção desejada");
             System.out.println("1 - Criar nível");
             System.out.println("2 - Listar níveis criados");
+            System.out.println("3 - Editar nivel");
             System.out.println("0 - Sair");
             opcao = entrada.nextInt();
+            entrada.nextLine();
 
             switch (opcao) {
                 case 1:
@@ -80,6 +82,9 @@ public class GerenciadorNivel {
                     break;
                 case 2:
                     System.out.println(listarNiveis());
+                    break;
+                case 3:
+                    editarNivel();
                     break;
                 case 0:
                     System.out.println("Retornando ao menu inicial");
