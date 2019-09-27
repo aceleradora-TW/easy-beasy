@@ -4,22 +4,22 @@ import java.util.Scanner;
 
 public class GerenciadorNivel {
 
-    Scanner entrada = new Scanner(System.in);
-    Diagnostico novoDiagnostico;
+    private Scanner entrada = new Scanner(System.in);
+    private Diagnostico novoDiagnostico;
 
     public GerenciadorNivel(Diagnostico novoDiagnostico) {
         this.novoDiagnostico = novoDiagnostico;
     }
 
-    public Nivel criaNivel(int ordem, String nome) {
+    private Nivel criarNivel(int ordem, String nome) {
         return new Nivel(ordem, nome);
     }
 
-    public void adicionarNivel(Nivel novoNivel) {
+    private void adicionarNivel(Nivel novoNivel) {
         novoDiagnostico.getNivel().add(novoNivel);
     }
 
-    public String listarNiveis() {
+    private String listarNiveis() {
         String lista = "";
 
         for (Nivel nivel : novoDiagnostico.getNivel()) {
@@ -28,34 +28,48 @@ public class GerenciadorNivel {
         return lista;
     }
 
-    public String editarNivel(){
+    private void editarNivel() {
         System.out.println(listarNiveis());
         System.out.println("Digite o nome do nível que você quer editar");
         String nomeEscolhido = entrada.nextLine();
 
         Nivel antigoNivel = null;
 
-        for(Nivel nivel: novoDiagnostico.getNivel()){
-            if(nivel.getNome().equals(nomeEscolhido)){
+        for (Nivel nivel : novoDiagnostico.getNivel()) {
+            if (nivel.getNome().equals(nomeEscolhido)) {
                 antigoNivel = (Nivel) nivel.clone();
                 System.out.println("Você deseja alterar a ordem ou o nome?");
                 System.out.println("1 - Alterar ordem");
                 System.out.println("2 - Alterar nome");
                 int resposta = entrada.nextInt();
                 entrada.nextLine();
-                if (resposta == 1){
+                if (resposta == 1) {
                     System.out.println("Informe a nova ordem");
                     int novaOrdem = entrada.nextInt();
                     nivel.setOrdem(novaOrdem);
-                }
-                else if (resposta == 2){
+                } else if (resposta == 2) {
                     System.out.println("Informe o novo nome");
                     String novoNome = entrada.nextLine();
                     nivel.setNome(novoNome);
                 }
             }
         }
-        return String.valueOf(antigoNivel);
+        String.valueOf(antigoNivel);
+    }
+
+    private void removerNivel() {
+
+        System.out.println(listarNiveis());
+
+        System.out.println("Qual o nome do nivel que você deseja remover?");
+        String nomeNivel = entrada.nextLine();
+
+        for (int i = 0; i <novoDiagnostico.getNivel().size() ; i++) {
+            if (nomeNivel.equals(novoDiagnostico.getNivel().get(i).getNome())) {
+                novoDiagnostico.getNivel().remove(i);
+                break;
+            }
+        }
     }
 
     public void menuNivel() {
@@ -65,6 +79,7 @@ public class GerenciadorNivel {
             System.out.println("1 - Criar nível");
             System.out.println("2 - Listar níveis criados");
             System.out.println("3 - Editar nivel");
+            System.out.println("4 - Remover nivel");
             System.out.println("0 - Sair");
             opcao = entrada.nextInt();
             entrada.nextLine();
@@ -78,13 +93,16 @@ public class GerenciadorNivel {
                     System.out.println("Digite o nome do nível");
                     String nome = entrada.nextLine();
 
-                    adicionarNivel(criaNivel(ordem, nome));
+                    adicionarNivel(criarNivel(ordem, nome));
                     break;
                 case 2:
                     System.out.println(listarNiveis());
                     break;
                 case 3:
                     editarNivel();
+                    break;
+                case 4:
+                    removerNivel();
                     break;
                 case 0:
                     System.out.println("Retornando ao menu inicial");
