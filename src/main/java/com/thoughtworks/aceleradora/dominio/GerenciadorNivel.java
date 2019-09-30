@@ -41,11 +41,9 @@ public class GerenciadorNivel {
         System.out.println("Digite o nome do nível que você quer editar");
         String nomeEscolhido = entrada.nextLine();
 
-        Nivel antigoNivel = null;
 
         for (Nivel nivel : novoDiagnostico.getNiveis()) {
             if (nivel.getNome().equals(nomeEscolhido)) {
-                antigoNivel = (Nivel) nivel.clone();
                 System.out.println("Você deseja alterar a ordem ou o nome?");
                 System.out.println("1 - Alterar ordem");
                 System.out.println("2 - Alterar nome");
