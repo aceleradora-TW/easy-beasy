@@ -15,17 +15,13 @@ public class App {
 
 
     public static void main(String[] args) {
+
         Scanner entrada = new Scanner(System.in);
-
         Scanner entradaPergunta = new Scanner(System.in);
-
         Estagio novoEstagio = new Estagio();
-
         Diagnostico novoDiagnostico = new Diagnostico();
-
         GerenciadorNivel gerenciadorNivel = new GerenciadorNivel(novoDiagnostico, entrada);
         GerenciadorArea gerenciadorArea = new GerenciadorArea(entrada);
-
         GerenciadorPergunta gerenciadorPergunta = new GerenciadorPergunta(novoEstagio, entradaPergunta);
 
         System.out.println("Boas vindas, {Administrador}");
@@ -47,6 +43,7 @@ public class App {
                     break;
                 case 3:
                     gerenciadorPergunta.menuPergunta();
+                    break;
                 case 0:
                     System.out.println("Saindo do menu.");
                     break;
