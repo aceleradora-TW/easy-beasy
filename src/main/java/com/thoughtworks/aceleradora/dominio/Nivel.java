@@ -4,8 +4,6 @@ public class Nivel {
     private int ordem;
     private String nome;
 
-    public Nivel() {
-    }
 
     public Nivel(int ordem, String nome) {
         this.ordem = ordem;
