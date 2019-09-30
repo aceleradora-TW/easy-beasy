@@ -12,12 +12,19 @@ public class GerenciadorNivel {
         this.entrada = entrada;
     }
 
-    private Nivel criarNivel(int ordem, String nome) {
+    private Nivel criarNivel() {
+        System.out.println("Digite a ordem");
+        int ordem = entrada.nextInt();
+        entrada.nextLine();
+
+        System.out.println("Digite o nome do nível");
+        String nome = entrada.nextLine();
         return new Nivel(ordem, nome);
     }
 
-    private void adicionarNivel(Nivel novoNivel) {
-        novoDiagnostico.getNiveis().add(novoNivel);
+    private void adicionarNivel() {
+
+        novoDiagnostico.getNiveis().add(criarNivel());
     }
 
     private String listarNiveis() {
@@ -86,14 +93,7 @@ public class GerenciadorNivel {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Digite a ordem");
-                    int ordem = entrada.nextInt();
-                    entrada.nextLine();
-
-                    System.out.println("Digite o nome do nível");
-                    String nome = entrada.nextLine();
-
-                    adicionarNivel(criarNivel(ordem, nome));
+                    adicionarNivel();
                     break;
                 case 2:
                     System.out.println(listarNiveis());
