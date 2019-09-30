@@ -2,6 +2,7 @@ package com.thoughtworks.aceleradora;
 
 import com.thoughtworks.aceleradora.dominio.Diagnostico;
 import com.thoughtworks.aceleradora.dominio.Estagio;
+import com.thoughtworks.aceleradora.dominio.GerenciadorArea;
 import com.thoughtworks.aceleradora.dominio.GerenciadorNivel;
 import com.thoughtworks.aceleradora.dominio.GerenciadorPergunta;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,6 +24,7 @@ public class App {
         Diagnostico novoDiagnostico = new Diagnostico();
 
         GerenciadorNivel gerenciadorNivel = new GerenciadorNivel(novoDiagnostico, entrada);
+        GerenciadorArea gerenciadorArea = new GerenciadorArea(entrada);
 
         GerenciadorPergunta gerenciadorPergunta = new GerenciadorPergunta(novoEstagio, entradaPergunta);
 
@@ -31,7 +33,8 @@ public class App {
 
         do {
             System.out.println("\n1 - Gerenciar niveis.");
-            System.out.println("2 - Gerenciar perguntas.");
+            System.out.println("2 - Gerenciar áreas.");
+            System.out.println("3 - Gerenciar perguntas.");
             System.out.println("0 - Sair.");
             opcao = entrada.nextInt();
 
@@ -40,6 +43,9 @@ public class App {
                     gerenciadorNivel.menuNivel();
                     break;
                 case 2:
+                    gerenciadorArea.menuArea();
+                    break;
+                case 3:
                     gerenciadorPergunta.menuPergunta();
                 case 0:
                     System.out.println("Saindo do menu.");
