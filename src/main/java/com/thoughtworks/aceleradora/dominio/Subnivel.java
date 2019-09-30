@@ -5,12 +5,12 @@ import java.util.List;
 public class Subnivel {
     private int ordem;
     private Area area;
-    private List<Estagio> estagio;
+    private List<Estagio> estagios;
 
-    public Subnivel(int ordem, Area area, List<Estagio> estagio) {
+    public Subnivel(int ordem, Area area, List<Estagio> estagios) {
         this.ordem = ordem;
         this.area = area;
-        this.estagio = estagio;
+        this.estagios = estagios;
     }
 
     public int getOrdem() {
@@ -21,7 +21,7 @@ public class Subnivel {
         return area;
     }
 
-    public List<Estagio> getEstagio() {
-        return estagio;
+    public List<Estagio> getEstagios() {
+        return estagios;
     }
 }

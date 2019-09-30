@@ -16,13 +16,13 @@ public class GerenciadorNivel {
     }
 
     private void adicionarNivel(Nivel novoNivel) {
-        novoDiagnostico.getNivel().add(novoNivel);
+        novoDiagnostico.getNiveis().add(novoNivel);
     }
 
     private String listarNiveis() {
         String lista = "";
 
-        for (Nivel nivel : novoDiagnostico.getNivel()) {
+        for (Nivel nivel : novoDiagnostico.getNiveis()) {
             lista = lista + "\n" + nivel.getOrdem() + " " + nivel.getNome();
         }
         return lista;
@@ -35,7 +35,7 @@ public class GerenciadorNivel {
 
         Nivel antigoNivel = null;
 
-        for (Nivel nivel : novoDiagnostico.getNivel()) {
+        for (Nivel nivel : novoDiagnostico.getNiveis()) {
             if (nivel.getNome().equals(nomeEscolhido)) {
                 antigoNivel = (Nivel) nivel.clone();
                 System.out.println("Você deseja alterar a ordem ou o nome?");
@@ -63,9 +63,9 @@ public class GerenciadorNivel {
         System.out.println("Qual o nome do nivel que você deseja remover?");
         String nomeNivel = entrada.nextLine();
 
-        for (int i = 0; i <novoDiagnostico.getNivel().size() ; i++) {
-            if (nomeNivel.equals(novoDiagnostico.getNivel().get(i).getNome())) {
-                novoDiagnostico.getNivel().remove(i);
+        for (int i = 0; i <novoDiagnostico.getNiveis().size() ; i++) {
+            if (nomeNivel.equals(novoDiagnostico.getNiveis().get(i).getNome())) {
+                novoDiagnostico.getNiveis().remove(i);
                 break;
             }
         }

@@ -4,13 +4,13 @@ import java.util.List;
 
 public class Estagio {
     private int ordem;
-    private List<Pergunta> pergunta;
+    private List<Pergunta> perguntas;
     private String solucao;
     private String nome;
 
-    public Estagio(int ordem, List<Pergunta> pergunta, String solucao, String nome) {
+    public Estagio(int ordem, List<Pergunta> perguntas, String solucao, String nome) {
         this.ordem = ordem;
-        this.pergunta = pergunta;
+        this.perguntas = perguntas;
         this.solucao = solucao;
         this.nome = nome;
     }
@@ -19,8 +19,8 @@ public class Estagio {
         return ordem;
     }
 
-    public List<Pergunta> getPergunta() {
-        return pergunta;
+    public List<Pergunta> getPerguntas() {
+        return perguntas;
     }
 
     public String getSolucao() {

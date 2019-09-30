@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Diagnostico {
-    private List<Nivel> nivel;
+    private List<Nivel> niveis;
 
     public Diagnostico() {
-        nivel = new ArrayList<>();
+        niveis = new ArrayList<>();
     }
 
-    public List<Nivel> getNivel(){
-        return nivel;
+    public List<Nivel> getNiveis(){
+        return niveis;
     }
 }
