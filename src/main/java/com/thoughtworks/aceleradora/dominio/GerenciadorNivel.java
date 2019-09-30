@@ -12,6 +12,41 @@ public class GerenciadorNivel {
         this.entrada = entrada;
     }
 
+    public void menuNivel() {
+        int opcao;
+        do {
+            System.out.println("Digite a opção desejada");
+            System.out.println("1 - Criar nível");
+            System.out.println("2 - Listar níveis criados");
+            System.out.println("3 - Editar nivel");
+            System.out.println("4 - Remover nivel");
+            System.out.println("0 - Sair");
+            opcao = entrada.nextInt();
+            entrada.nextLine();
+
+            switch (opcao) {
+                case 1:
+                    adicionarNivel();
+                    break;
+                case 2:
+                    System.out.println(listarNiveis());
+                    break;
+                case 3:
+                    editarNivel();
+                    break;
+                case 4:
+                    removerNivel();
+                    break;
+                case 0:
+                    System.out.println("Retornando ao menu inicial");
+                    break;
+                default:
+                    System.out.println("Opção inválida");
+                    break;
+            }
+        } while (opcao != 0);
+    }
+
     private Nivel criarNivel() {
         System.out.println("Digite a ordem");
         int ordem = entrada.nextInt();
@@ -23,7 +58,6 @@ public class GerenciadorNivel {
     }
 
     private void adicionarNivel() {
-
         novoDiagnostico.getNiveis().add(criarNivel());
     }
 
@@ -75,41 +109,6 @@ public class GerenciadorNivel {
                 break;
             }
         }
-    }
-
-    public void menuNivel() {
-        int opcao;
-        do {
-            System.out.println("Digite a opção desejada");
-            System.out.println("1 - Criar nível");
-            System.out.println("2 - Listar níveis criados");
-            System.out.println("3 - Editar nivel");
-            System.out.println("4 - Remover nivel");
-            System.out.println("0 - Sair");
-            opcao = entrada.nextInt();
-            entrada.nextLine();
-
-            switch (opcao) {
-                case 1:
-                    adicionarNivel();
-                    break;
-                case 2:
-                    System.out.println(listarNiveis());
-                    break;
-                case 3:
-                    editarNivel();
-                    break;
-                case 4:
-                    removerNivel();
-                    break;
-                case 0:
-                    System.out.println("Retornando ao menu inicial");
-                    break;
-                default:
-                    System.out.println("Opção inválida");
-                    break;
-            }
-        } while (opcao != 0);
     }
 }
 
