@@ -54,7 +54,6 @@ public class GerenciadorNivel {
                 }
             }
         }
-        String.valueOf(antigoNivel);
     }
 
     private void removerNivel() {
