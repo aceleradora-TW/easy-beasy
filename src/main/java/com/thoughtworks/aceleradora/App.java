@@ -2,7 +2,6 @@ package com.thoughtworks.aceleradora;
 
 import com.thoughtworks.aceleradora.dominio.Diagnostico;
 import com.thoughtworks.aceleradora.dominio.GerenciadorNivel;
-import com.thoughtworks.aceleradora.dominio.Nivel;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Scanner;
@@ -16,9 +15,8 @@ public class App {
         Scanner entrada = new Scanner(System.in);
 
         Diagnostico novoDiagnostico = new Diagnostico();
-        Nivel novoNivel = new Nivel();
 
-        GerenciadorNivel gerenciadorNivel = new GerenciadorNivel(novoDiagnostico);
+        GerenciadorNivel gerenciadorNivel = new GerenciadorNivel(novoDiagnostico, entrada);
 
         System.out.println("Boas vindas, {Administrador}");
         int opcao;

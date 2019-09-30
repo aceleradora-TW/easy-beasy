@@ -4,11 +4,12 @@ import java.util.Scanner;
 
 public class GerenciadorNivel {
 
-    private Scanner entrada = new Scanner(System.in);
+    private Scanner entrada;
     private Diagnostico novoDiagnostico;
 
-    public GerenciadorNivel(Diagnostico novoDiagnostico) {
+    public GerenciadorNivel(Diagnostico novoDiagnostico, Scanner entrada) {
         this.novoDiagnostico = novoDiagnostico;
+        this.entrada = entrada;
     }
 
     private Nivel criarNivel(int ordem, String nome) {
