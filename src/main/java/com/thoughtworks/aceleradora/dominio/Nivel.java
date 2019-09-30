@@ -1,13 +1,18 @@
 package com.thoughtworks.aceleradora.dominio;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Nivel {
     private int ordem;
     private String nome;
+    private List<Subnivel> subniveis;
 
 
     public Nivel(int ordem, String nome) {
         this.ordem = ordem;
         this.nome = nome;
+        subniveis = new ArrayList<>();
     }
 
     public int getOrdem() {
