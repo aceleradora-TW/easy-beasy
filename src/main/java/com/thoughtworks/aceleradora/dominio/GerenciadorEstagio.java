@@ -26,6 +26,12 @@ public class GerenciadorEstagio {
     private void adicionarEstagio(){
         novoSubnivel.getEstagios().add(criarEstagio());
     }
+    private String listarEstagio(){
+        for (Estagio estagio: novoSubnivel.getEstagios()) {
+            return "ordem: " + estagio.getOrdem() + "nome: " + estagio.getNome();
+        }
+        return "";
+    }
 
 }
 
