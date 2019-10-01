@@ -30,7 +30,7 @@ public class App {
         int opcao;
 
         do {
-            System.out.println("1 - Gerenciar niveis.");
+            System.out.println("\n1 - Gerenciar niveis.");
             System.out.println("2 - Gerenciar perguntas.");
             System.out.println("0 - Sair.");
             opcao = entrada.nextInt();

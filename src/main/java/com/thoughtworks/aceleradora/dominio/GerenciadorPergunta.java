@@ -34,7 +34,7 @@ public class GerenciadorPergunta {
 
     public void removerPergunta(){
         System.out.println(listarPerguntas());
-        System.out.println("Digite a ordem da pergunta que deseja remover");
+        System.out.println("\nDigite a ordem da pergunta que deseja remover");
         int resposta = entradaPergunta.nextInt();
 
         for ( Pergunta pergunta : novoEstagio.getPerguntas()){
@@ -54,26 +54,24 @@ public class GerenciadorPergunta {
         for (Pergunta pergunta : novoEstagio.getPerguntas()) {
             if (pergunta.getOrdem() == ordem) {
 
-                System.out.println("Você quer editar a ordem ou a descrição?");
-                System.out.println("1 - Alterar ordem");
+                System.out.println("\nVocê quer editar a ordem ou a descrição?");
+                System.out.println("\n1 - Alterar ordem");
                 System.out.println("2 - Alterar descrição");
                 int resposta = entradaPergunta.nextInt();
+                entradaPergunta.nextLine();
 
                 if (resposta == 1) {
-                    System.out.println("Informe a nova ordem");
+                    System.out.println("\nInforme a nova ordem");
                     int novaOrdem = entradaPergunta.nextInt();
                     pergunta.setOrdem(novaOrdem);
                 }
 
                 else if (resposta == 2) {
-                    System.out.println("Informe a nova descrição");
+                    System.out.println("\nInforme a nova descrição");
                     String novaDescricao = entradaPergunta.nextLine();
                     pergunta.setDescricao(novaDescricao);
+                    break;
                 }
-            }
-
-            else {
-                System.out.println("Ordem inválida, tente novamente");
             }
         }
     }
@@ -82,7 +80,7 @@ public class GerenciadorPergunta {
         int opcao;
         do {
             System.out.println("\nDigite a opção desejada");
-            System.out.println("1 - Criar pergunta");
+            System.out.println("\n1 - Criar pergunta");
             System.out.println("2 - Listar Perguntas");
             System.out.println("3 - Editar perguntas");
             System.out.println("4 - Remover perguntas");
@@ -102,7 +100,7 @@ public class GerenciadorPergunta {
                     break;
                 case 4:
                     removerPergunta();
-                break;
+                    break;
                 case 0:
                     break;
                 default:
