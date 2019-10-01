@@ -10,7 +10,6 @@ import java.util.Scanner;
 @SpringBootApplication
 public class App {
 
-
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
 
@@ -38,6 +37,5 @@ public class App {
                     break;
             }
         }while(opcao!=0);
-
     }
 }
