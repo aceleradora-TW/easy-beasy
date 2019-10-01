@@ -18,6 +18,9 @@ public class Estagio {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    public void setSolucao(String solucao) {
+        this.solucao = solucao;
+    }
 
     public int getOrdem() {
         return ordem;

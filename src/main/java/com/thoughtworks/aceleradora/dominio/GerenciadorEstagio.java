@@ -23,6 +23,12 @@ public class GerenciadorEstagio {
         int nome = entrada.nextInt();
         String converte = String.valueOf(nome);
         novoEstagio.setNome(converte);
+        entrada.nextLine();
+
+        System.out.println("Digite a solução para esse estágio");
+        String solucao = entrada.nextLine();
+        novoEstagio.setSolucao(solucao);
+
         return novoEstagio;
     }
     private void adicionarEstagio(){
@@ -30,8 +36,11 @@ public class GerenciadorEstagio {
     }
     private String listarEstagios(){
         String retorno = "";
+        if (novoSubnivel.getEstagios().isEmpty()){
+            System.out.println("Lista vazia");
+        }
         for (Estagio estagio: novoSubnivel.getEstagios()) {
-            retorno += "ordem: " + estagio.getOrdem() + " nome: " + estagio.getNome()+ "\n";
+            retorno += "ordem: " + estagio.getOrdem() + " nome: " + estagio.getNome() + " solução: " + estagio.getSolucao();
         }
         return retorno;
     }
@@ -45,19 +54,24 @@ public class GerenciadorEstagio {
 
         for (Estagio estagio: novoSubnivel.getEstagios()) {
             if (estagio.getNome().equals(nomeEscolhido)) {
-                System.out.println("Você deseja alterar a ordem ou o nome?");
+                System.out.println("Você deseja alterar a ordem, nome ou solução ?");
                 System.out.println("1 - Alterar ordem");
                 System.out.println("2 - Alterar nome");
+                System.out.println("3 - Alterar Solução");
                 int resposta = entrada.nextInt();
                 entrada.nextLine();
                 if (resposta == 1) {
-                    System.out.println("Informe a nova ordem");
+                    System.out.println("Informe a nova ordem ");
                     int novaOrdem = entrada.nextInt();
                     estagio.setOrdem(novaOrdem);
                 } else if (resposta == 2) {
-                    System.out.println("Informe o novo nome");
+                    System.out.println("Informe o novo nome ");
                     String novoNome = entrada.nextLine();
                     estagio.setNome(novoNome);
+                } else if (resposta == 3) {
+                    System.out.println("Informe a nova solução ");
+                    String novaSolucao = entrada.nextLine();
+                    estagio.setSolucao(novaSolucao);
                 }
             }
         }
