@@ -5,21 +5,25 @@ import java.util.Scanner;
 public class GerenciadorEstagio {
     private Scanner entrada;
     private Subnivel novoSubnivel;
+    private Estagio novoEstagio;
 
     public GerenciadorEstagio(Scanner entrada, Subnivel novoSubnivel) {
         this.entrada = entrada;
         this.novoSubnivel = novoSubnivel;
+        novoEstagio = new Estagio();
     }
 
     private Estagio criarEstagio() {
         System.out.println("Digite a ordem");
         int ordem = entrada.nextInt();
         entrada.nextLine();
+        novoEstagio.setOrdem(ordem);
 
         System.out.println("Digite o nome do estágio");
         int nome = entrada.nextInt();
         String converte = String.valueOf(nome);
-        return new Estagio(ordem,converte);
+        novoEstagio.setNome(converte);
+        return novoEstagio;
     }
     private void adicionarEstagio(){
         novoSubnivel.getEstagios().add(criarEstagio());
