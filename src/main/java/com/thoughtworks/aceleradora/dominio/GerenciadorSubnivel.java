@@ -16,12 +16,18 @@ public class GerenciadorSubnivel {
         int ordemSubnivel = entrada.nextInt();
         entrada.nextLine();
 
-        return new Subnivel(ordemSubnivel);
+        System.out.println("Informe uma area para este subnivel");
+        String area = entrada.nextLine();
+
+        Area nomeArea = new Area(area);
+
+        return new Subnivel(ordemSubnivel,nomeArea);
     }
 
     private void adicionarSubnivel() {
         novoNivel.getSubniveis().add(criarSubnivel());
     }
+
 
     private String listarSubniveis() {
         String lista = "";

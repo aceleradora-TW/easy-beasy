@@ -10,8 +10,9 @@ public class Subnivel {
     public Subnivel() {
     }
 
-    public Subnivel(int ordem) {
+    public Subnivel(int ordem, Area area) {
         this.ordem = ordem;
+        this.area = area;
     }
 
     public int getOrdem() {
