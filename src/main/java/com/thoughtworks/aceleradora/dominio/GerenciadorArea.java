@@ -25,11 +25,20 @@ public class GerenciadorArea {
         areas.add(criarArea());
     }
 
-       public void menuArea() {
+    public String listarArea() {
+        String area = "";
+        for (int i = 0; i < areas.size(); i++) {
+            area += "\n" + areas.get(i).getNome();
+        }
+        return area;
+    }
+
+    public void menuArea() {
         int opcao;
         do {
             System.out.println("Digite a opção desejada");
             System.out.println("1 - Adicionar área");
+            System.out.println("2 - Listar área");
             System.out.println("0 - Sair");
             opcao = entrada.nextInt();
             entrada.nextLine();
@@ -38,6 +47,8 @@ public class GerenciadorArea {
                 case 1:
                     adicionarArea();
                     break;
+                case 2:
+                    System.out.println(listarArea());
                 case 0:
                     System.out.println("Retornando ao menu inicial");
                     break;
