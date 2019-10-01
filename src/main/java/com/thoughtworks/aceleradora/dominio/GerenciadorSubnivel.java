@@ -48,6 +48,22 @@ public class GerenciadorSubnivel {
         }
     }
 
+    private void removerSubnivel() {
+
+        System.out.println(listarSubniveis());
+
+        System.out.println("Qual a ordem do subnivel que você deseja remover?");
+        int ordemSubnivel = entrada.nextInt();
+        entrada.nextLine();
+
+        for (int i = 0; i < novoNivel.getSubniveis().size(); i++) {
+            if (ordemSubnivel == novoNivel.getSubniveis().get(i).getOrdem()) {
+                novoNivel.getSubniveis().remove(i);
+                break;
+            }
+        }
+    }
+
     public void menuSubnivel() {
         int opcao;
         do {
@@ -55,6 +71,7 @@ public class GerenciadorSubnivel {
             System.out.println("1 - Criar Subnível");
             System.out.println("2 - Listar Subníveis criados");
             System.out.println("3 - Editar Subnivel");
+            System.out.println("4 - Remover Subnivel");
             System.out.println("0 - Sair");
             opcao = entrada.nextInt();
             entrada.nextLine();
@@ -68,6 +85,9 @@ public class GerenciadorSubnivel {
                     break;
                 case 3:
                     editarSubnivel();
+                    break;
+                case 4:
+                    removerSubnivel();
                     break;
                 case 0:
                     System.out.println("Retornando ao menu inicial");
