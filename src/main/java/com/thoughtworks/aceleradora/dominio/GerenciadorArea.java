@@ -26,37 +26,46 @@ public class GerenciadorArea {
     }
 
     public void listarArea() {
-        for (Area area : areas) {
-            System.out.println(area.getNome());
-        }
+        if (!areas.isEmpty()) {
+            for (Area area : areas) {
+                System.out.println(area.getNome());
+            }
+        } else
+            System.out.println("Você ainda não adicionou nenhuma área!");
     }
 
     public void removerArea() {
-        listarArea();
-        System.out.println("Digite o nome da área que você deseja remover");
-        String areaSelecionada = entrada.nextLine();
+        if (!areas.isEmpty()) {
+            listarArea();
+            System.out.println("Digite o nome da área que você deseja remover");
+            String areaSelecionada = entrada.nextLine();
 
-        for (Area area : areas) {
-            if (areaSelecionada.equalsIgnoreCase(area.getNome())) {
-                areas.remove(area);
-                break;
+            for (Area area : areas) {
+                if (areaSelecionada.equalsIgnoreCase(area.getNome())) {
+                    areas.remove(area);
+                    break;
+                }
             }
-        }
+        } else
+            System.out.println("Você não tem nenhuma área para ser removida!");
     }
 
     public void editarArea() {
-        listarArea();
-        System.out.println("Digite o nome da área que você deseja editar");
-        String areaSelecionada = entrada.nextLine();
-        System.out.println("Digite o novo nome da área");
-        String areaAtualizada = entrada.nextLine();
+        if (!areas.isEmpty()) {
+            listarArea();
+            System.out.println("Digite o nome da área que você deseja editar");
+            String areaSelecionada = entrada.nextLine();
+            System.out.println("Digite o novo nome da área");
+            String areaAtualizada = entrada.nextLine();
 
-        for (int i = 0; i < areas.size(); i++) {
-            if (areaSelecionada.equalsIgnoreCase(areas.get(i).getNome())) {
-                areas.set(i, new Area(areaAtualizada));
-                break;
+            for (int i = 0; i < areas.size(); i++) {
+                if (areaSelecionada.equalsIgnoreCase(areas.get(i).getNome())) {
+                    areas.set(i, new Area(areaAtualizada));
+                    break;
+                }
             }
-        }
+        } else
+            System.out.println("Você não tem nenhuma área para editar!");
     }
 
     public void menuArea() {
