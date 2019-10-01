@@ -74,9 +74,9 @@ public class GerenciadorSubnivel {
         int ordemSubnivel = entrada.nextInt();
         entrada.nextLine();
 
-        for (int i = 0; i < novoNivel.getSubniveis().size(); i++) {
-            if (ordemSubnivel == novoNivel.getSubniveis().get(i).getOrdem()) {
-                novoNivel.getSubniveis().remove(i);
+        for (Subnivel subnivel : novoNivel.getSubniveis()) {
+            if (ordemSubnivel == subnivel.getOrdem()) {
+                novoNivel.getSubniveis().remove(subnivel);
                 break;
             }
         }
