@@ -2,6 +2,8 @@ package com.thoughtworks.aceleradora;
 
 import com.thoughtworks.aceleradora.dominio.Diagnostico;
 import com.thoughtworks.aceleradora.dominio.GerenciadorNivel;
+import com.thoughtworks.aceleradora.dominio.GerenciadorSubnivel;
+import com.thoughtworks.aceleradora.dominio.Nivel;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Scanner;
@@ -15,20 +17,25 @@ public class App {
         Scanner entrada = new Scanner(System.in);
 
         Diagnostico novoDiagnostico = new Diagnostico();
-
+        Nivel novoNivel = new Nivel();
         GerenciadorNivel gerenciadorNivel = new GerenciadorNivel(novoDiagnostico, entrada);
+        GerenciadorSubnivel gerenciadorSubnivel = new GerenciadorSubnivel(novoNivel, entrada);
 
         System.out.println("Boas vindas, {Administrador}");
         int opcao;
 
         do {
             System.out.println("1 - Gerenciar niveis.");
+            System.out.println("2 - Gerenciar Subniveis");
             System.out.println("0 - Sair.");
             opcao = entrada.nextInt();
 
             switch (opcao) {
                 case 1:
                     gerenciadorNivel.menuNivel();
+                    break;
+                case 2:
+                    gerenciadorSubnivel.menuSubnivel();
                     break;
                 case 0:
                     System.out.println("Saindo do menu.");

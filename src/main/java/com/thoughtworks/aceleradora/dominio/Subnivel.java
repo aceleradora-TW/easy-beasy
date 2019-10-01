@@ -7,10 +7,11 @@ public class Subnivel {
     private Area area;
     private List<Estagio> estagios;
 
-    public Subnivel(int ordem, Area area, List<Estagio> estagios) {
+    public Subnivel() {
+    }
+
+    public Subnivel(int ordem) {
         this.ordem = ordem;
-        this.area = area;
-        this.estagios = estagios;
     }
 
     public int getOrdem() {
@@ -19,6 +20,10 @@ public class Subnivel {
 
     public Area getArea(){
         return area;
+    }
+
+    public void setOrdem(int ordem) {
+        this.ordem = ordem;
     }
 
     public List<Estagio> getEstagios() {
