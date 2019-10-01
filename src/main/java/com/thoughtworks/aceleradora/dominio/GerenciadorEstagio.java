@@ -58,6 +58,20 @@ public class GerenciadorEstagio {
             }
         }
     }
+    private void removerEstagio() {
+
+        System.out.println(listarEstagios());
+
+        System.out.println("Qual o nome do estágio que você deseja remover?");
+        String nomeEstagio = entrada.nextLine();
+
+        for (int i = 0; i <novoSubnivel.getEstagios().size() ; i++) {
+            if (nomeEstagio.equals(novoSubnivel.getEstagios().get(i).getNome())) {
+                novoSubnivel.getEstagios().remove(i);
+                break;
+            }
+        }
+    }
 
     public void menuEstagio() {
         int opcao;
@@ -66,6 +80,7 @@ public class GerenciadorEstagio {
             System.out.println("1 - Criar estágio");
             System.out.println("2 - Listar estágios criados");
             System.out.println("3 - Editar estágios");
+            System.out.println("4 - Remover estágios");
             System.out.println("0 - Sair");
             opcao = entrada.nextInt();
             entrada.nextLine();
@@ -79,6 +94,9 @@ public class GerenciadorEstagio {
                     break;
                 case 3:
                     editarEstagio();
+                    break;
+                    case 4:
+                    removerEstagio();
                     break;
                 case 0:
                     System.out.println("Retornando ao menu inicial");
