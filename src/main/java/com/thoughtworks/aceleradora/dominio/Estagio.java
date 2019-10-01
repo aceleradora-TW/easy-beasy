@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Estagio {
     private int ordem;
-    private List<Pergunta> perguntas = new ArrayList<>();
+    private List<Pergunta> perguntas;
     private String solucao;
     private String nome;
 
@@ -16,6 +16,7 @@ public class Estagio {
     }
 
     public Estagio(){
+        perguntas = new ArrayList<>();
     }
 
     public int getOrdem() {

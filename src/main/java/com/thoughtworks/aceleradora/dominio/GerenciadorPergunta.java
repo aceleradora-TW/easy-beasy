@@ -24,12 +24,19 @@ public class GerenciadorPergunta {
         novoEstagio.getPerguntas().add(criarPergunta());
     }
 
-
+    public String listarPerguntas(){
+        String lista = " ";
+        for (Pergunta pergunta: novoEstagio.getPerguntas()) {
+            lista = lista + "\n" + pergunta.getOrdem() + " " + pergunta.getDescricao();
+        }
+        return lista;
+    }
     public void menuPergunta() {
         int opcao;
         do {
             System.out.println("\nDigite a opção desejada");
             System.out.println("1 - Criar pergunta");
+            System.out.println("2 - Listar Perguntas");
             System.out.println("0 - Sair");
             opcao = entradaPergunta.nextInt();
             entradaPergunta.nextLine();
@@ -38,7 +45,9 @@ public class GerenciadorPergunta {
                 case 1:
                     adicionarPergunta();
                     break;
-
+                case 2:
+                    System.out.println(listarPerguntas());
+                    break;
                 case 0:
                     break;
                 default:
