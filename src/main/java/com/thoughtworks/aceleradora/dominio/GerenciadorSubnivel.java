@@ -23,11 +23,21 @@ public class GerenciadorSubnivel {
         novoNivel.getSubniveis().add(criarSubnivel());
     }
 
+    private String listarSubniveis() {
+        String lista = "";
+
+        for (Subnivel subnivel : novoNivel.getSubniveis()) {
+            lista = lista + "\n" + subnivel.getOrdem();
+        }
+        return lista;
+    }
+
     public void menuSubnivel() {
         int opcao;
         do {
             System.out.println("Digite a opção desejada");
             System.out.println("1 - Criar Subnível");
+            System.out.println("2 - Listar Subníveis criados");
             System.out.println("0 - Sair");
             opcao = entrada.nextInt();
             entrada.nextLine();
@@ -35,6 +45,9 @@ public class GerenciadorSubnivel {
             switch (opcao) {
                 case 1:
                     adicionarSubnivel();
+                    break;
+                case 2:
+                    System.out.println(listarSubniveis());
                     break;
                 case 0:
                     System.out.println("Retornando ao menu inicial");
