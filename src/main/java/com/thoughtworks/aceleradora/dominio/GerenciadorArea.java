@@ -46,13 +46,29 @@ public class GerenciadorArea {
         }
     }
 
+    public void editarArea(){
+        System.out.println(listarArea() + "\n");
+        System.out.println("Digite o nome da área que você deseja editar");
+        String areaSelecionada = entrada.nextLine();
+        System.out.println("Digite o novo nome da área");
+        String areaAtualizada = entrada.nextLine();
+
+        for (int i = 0; i < areas.size(); i++) {
+            if (areaSelecionada.equalsIgnoreCase(areas.get(i).getNome())) {
+                areas.set(i, new Area(areaAtualizada));
+                break;
+            }
+        }
+    }
+
     public void menuArea() {
         int opcao;
         do {
             System.out.println("Digite a opção desejada");
             System.out.println("1 - Adicionar área");
             System.out.println("2 - Listar área");
-            System.out.println("3 - Remover área");
+            System.out.println("3 - Editar área");
+            System.out.println("4 - Remover área");
             System.out.println("0 - Sair");
             opcao = entrada.nextInt();
             entrada.nextLine();
@@ -65,6 +81,9 @@ public class GerenciadorArea {
                     System.out.println(listarArea());
                     break;
                 case 3:
+                    editarArea();
+                    break;
+                case 4:
                     removerArea();
                     break;
                 case 0:
