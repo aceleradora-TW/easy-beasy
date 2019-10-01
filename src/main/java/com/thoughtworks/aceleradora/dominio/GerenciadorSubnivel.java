@@ -28,13 +28,13 @@ public class GerenciadorSubnivel {
         novoNivel.getSubniveis().add(criarSubnivel());
     }
 
-
     private String listarSubniveis() {
         String lista = "";
 
         for (Subnivel subnivel : novoNivel.getSubniveis()) {
-            lista = lista + "\n" + subnivel.getOrdem();
+            lista = lista + "\n" + subnivel.getOrdem() + " " + subnivel.getArea().getNome();
         }
+
         return lista;
     }
 
