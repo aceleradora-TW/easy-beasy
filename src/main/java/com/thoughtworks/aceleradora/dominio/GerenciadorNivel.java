@@ -1,6 +1,5 @@
 package com.thoughtworks.aceleradora.dominio;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class GerenciadorNivel {
@@ -50,14 +49,25 @@ public class GerenciadorNivel {
 
     private Nivel criarNivel() {
         int ordem;
+        String nome;
+        boolean nomeInvalido;
         System.out.println("Digite a ordem: ");
         do{
             ordem = Validacoes.entradaNumero();
             if(ordem < 0) System.out.println("Ordem Inválida, digite um número positivo.");
         }while(ordem < 0);
 
-        System.out.println("Digite o nome do nível ('cancelar' para sair do programa)");
-        String nome = entrada.nextLine();
+        do {
+            System.out.println("Digite o nome do nível ('cancelar' para sair do programa)");
+            nome = entrada.nextLine();
+            if((Validacoes.nomeInvalido(nome))){
+                System.out.println("Nome invalido");
+                nomeInvalido = true;
+            }else{
+                nomeInvalido = Validacoes.nomeRepetido(novoDiagnostico.getNiveis(), nome);
+                System.out.println("Este nome ja existe, escolha outro nome.");
+            }
+        }while(nomeInvalido);
 
         if(nome.equalsIgnoreCase("cancelar")) return null;
         return new Nivel(ordem, nome);
@@ -67,6 +77,7 @@ public class GerenciadorNivel {
         Nivel umNivel = criarNivel();
         if(umNivel != null){
             novoDiagnostico.getNiveis().add(umNivel);
+            System.out.println("Nível criado com sucesso.");
         } else {
             System.out.println("Operação cancelada.");
         }

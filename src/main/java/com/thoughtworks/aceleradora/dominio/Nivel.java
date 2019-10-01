@@ -8,7 +8,6 @@ public class Nivel {
     private String nome;
     private List<Subnivel> subniveis;
 
-
     public Nivel(int ordem, String nome) {
         this.ordem = ordem;
         this.nome = nome;
@@ -35,5 +34,4 @@ public class Nivel {
     public String toString() {
         return "Ordem: " + ordem + ", Nome: " + nome;
     }
-
 }

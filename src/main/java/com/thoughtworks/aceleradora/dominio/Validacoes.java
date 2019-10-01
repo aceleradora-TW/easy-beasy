@@ -1,5 +1,6 @@
 package com.thoughtworks.aceleradora.dominio;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Validacoes {
@@ -19,4 +20,18 @@ public class Validacoes {
         }
         return numero;
     }
+
+    public static boolean nomeRepetido(List<Nivel> niveis, String nome){
+        for (Nivel nivelAux : niveis) {
+            if (nivelAux.getNome().equalsIgnoreCase(nome)) return true;
+        }
+        return false;
+    }
+
+    public static boolean nomeInvalido(String nome){
+        if(nome.startsWith(" ") || nome.isEmpty()) return true;
+        return false;
+
+    }
+
 }
