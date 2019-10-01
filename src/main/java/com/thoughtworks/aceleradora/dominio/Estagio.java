@@ -1,18 +1,21 @@
 package com.thoughtworks.aceleradora.dominio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Estagio {
     private int ordem;
-    private List<Pergunta> perguntas;
+    private List<Pergunta> perguntas = new ArrayList<>();
     private String solucao;
     private String nome;
 
-    public Estagio(int ordem, List<Pergunta> perguntas, String solucao, String nome) {
+    public Estagio(int ordem, String solucao, String nome) {
         this.ordem = ordem;
-        this.perguntas = perguntas;
         this.solucao = solucao;
         this.nome = nome;
+    }
+
+    public Estagio(){
     }
 
     public int getOrdem() {
