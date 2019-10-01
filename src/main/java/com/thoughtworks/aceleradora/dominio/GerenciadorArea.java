@@ -38,9 +38,9 @@ public class GerenciadorArea {
         System.out.println("Digite o nome da área que você deseja remover");
         String areaSelecionada = entrada.nextLine();
 
-        for (int i = 0; i < areas.size(); i++) {
-            if (areaSelecionada.equalsIgnoreCase(areas.get(i).getNome())) {
-                areas.remove(i);
+        for (Area area: areas) {
+            if (areaSelecionada.equalsIgnoreCase(area.getNome())){
+                areas.remove(area);
                 break;
             }
         }
