@@ -32,6 +32,20 @@ public class GerenciadorPergunta {
         return lista;
     }
 
+    public void removerPergunta(){
+        System.out.println(listarPerguntas());
+        System.out.println("Digite a ordem da pergunta que deseja remover");
+        int resposta = entradaPergunta.nextInt();
+
+        for ( Pergunta pergunta : novoEstagio.getPerguntas()){
+            if(pergunta.getOrdem() == resposta){
+                novoEstagio.getPerguntas().remove(pergunta);
+                System.out.println(listarPerguntas());
+                break;
+            }
+        }
+    }
+
     public void editarPergunta(){
         System.out.println(listarPerguntas());
         System.out.println("\nDigite a ordem da pergunta que você quer editar:");
@@ -71,6 +85,7 @@ public class GerenciadorPergunta {
             System.out.println("1 - Criar pergunta");
             System.out.println("2 - Listar Perguntas");
             System.out.println("3 - Editar perguntas");
+            System.out.println("4 - Remover perguntas");
             System.out.println("0 - Sair");
             opcao = entradaPergunta.nextInt();
             entradaPergunta.nextLine();
@@ -85,6 +100,9 @@ public class GerenciadorPergunta {
                 case 3:
                     editarPergunta();
                     break;
+                case 4:
+                    removerPergunta();
+                break;
                 case 0:
                     break;
                 default:
