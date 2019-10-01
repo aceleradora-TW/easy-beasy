@@ -17,7 +17,6 @@ public class App {
     public static void main(String[] args) {
 
         Scanner entrada = new Scanner(System.in);
-        Scanner entradaPergunta = new Scanner(System.in);
         Estagio novoEstagio = new Estagio();
         Diagnostico novoDiagnostico = new Diagnostico();
         GerenciadorNivel gerenciadorNivel = new GerenciadorNivel(novoDiagnostico, entrada);

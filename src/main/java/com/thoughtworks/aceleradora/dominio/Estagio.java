@@ -11,6 +11,7 @@ public class Estagio {
 
     public Estagio(int ordem, String solucao, String nome) {
         this.ordem = ordem;
+        this.perguntas = perguntas;
         this.solucao = solucao;
         this.nome = nome;
     }
