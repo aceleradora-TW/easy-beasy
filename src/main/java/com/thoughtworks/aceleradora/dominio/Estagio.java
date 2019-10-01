@@ -20,6 +20,14 @@ public class Estagio {
         this.nome = nome;
     }
 
+    public void setOrdem(int ordem) {
+        this.ordem = ordem;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public int getOrdem() {
         return ordem;
     }

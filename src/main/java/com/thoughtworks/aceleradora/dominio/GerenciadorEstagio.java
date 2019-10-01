@@ -33,12 +33,39 @@ public class GerenciadorEstagio {
     }
 
 
+    private void editarEstagio() {
+        System.out.println(listarEstagios());
+        System.out.println("Digite o nome do estágio que você quer editar");
+        String nomeEscolhido = entrada.nextLine();
+
+
+        for (Estagio estagio: novoSubnivel.getEstagios()) {
+            if (estagio.getNome().equals(nomeEscolhido)) {
+                System.out.println("Você deseja alterar a ordem ou o nome?");
+                System.out.println("1 - Alterar ordem");
+                System.out.println("2 - Alterar nome");
+                int resposta = entrada.nextInt();
+                entrada.nextLine();
+                if (resposta == 1) {
+                    System.out.println("Informe a nova ordem");
+                    int novaOrdem = entrada.nextInt();
+                    estagio.setOrdem(novaOrdem);
+                } else if (resposta == 2) {
+                    System.out.println("Informe o novo nome");
+                    String novoNome = entrada.nextLine();
+                    estagio.setNome(novoNome);
+                }
+            }
+        }
+    }
+
     public void menuEstagio() {
         int opcao;
         do {
             System.out.println("Digite a opção desejada");
             System.out.println("1 - Criar estágio");
             System.out.println("2 - Listar estágios criados");
+            System.out.println("3 - Editar estágios");
             System.out.println("0 - Sair");
             opcao = entrada.nextInt();
             entrada.nextLine();
@@ -49,6 +76,9 @@ public class GerenciadorEstagio {
                     break;
                 case 2:
                     System.out.println(listarEstagios());
+                    break;
+                case 3:
+                    editarEstagio();
                     break;
                 case 0:
                     System.out.println("Retornando ao menu inicial");
