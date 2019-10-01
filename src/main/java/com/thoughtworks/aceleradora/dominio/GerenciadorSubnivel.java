@@ -47,9 +47,21 @@ public class GerenciadorSubnivel {
 
         for (Subnivel subnivel : novoNivel.getSubniveis()) {
             if (subnivel.getOrdem() == ordemEscolhida) {
-                System.out.println("Informe a nova ordem");
-                int novaOrdem = entrada.nextInt();
-                subnivel.setOrdem(novaOrdem);
+                System.out.println("Você deseja alterar a ordem ou o nome?");
+                System.out.println("1 - Alterar ordem");
+                System.out.println("2 - Alterar nome");
+                int resposta = entrada.nextInt();
+                entrada.nextLine();
+                if (resposta == 1) {
+                    System.out.println("Informe a nova ordem");
+                    int novaOrdem = entrada.nextInt();
+                    subnivel.setOrdem(novaOrdem);
+                } else if (resposta == 2) {
+                    System.out.println("Informe o novo nome da area");
+                    String novoNome = entrada.nextLine();
+                    Area novaArea = new Area(novoNome);
+                    subnivel.setArea(novaArea);
+                }
             }
         }
     }

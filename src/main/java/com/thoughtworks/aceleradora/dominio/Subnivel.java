@@ -27,6 +27,10 @@ public class Subnivel {
         this.ordem = ordem;
     }
 
+    public void setArea(Area area) {
+        this.area = area;
+    }
+
     public List<Estagio> getEstagios() {
         return estagios;
     }
