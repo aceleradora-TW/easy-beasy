@@ -79,8 +79,8 @@ public class GerenciadorEstagio {
             System.out.println("Digite a opção desejada");
             System.out.println("1 - Criar estágio");
             System.out.println("2 - Listar estágios criados");
-            System.out.println("3 - Editar estágios");
-            System.out.println("4 - Remover estágios");
+            System.out.println("3 - Editar estágio");
+            System.out.println("4 - Remover estágio");
             System.out.println("0 - Sair");
             opcao = entrada.nextInt();
             entrada.nextLine();
