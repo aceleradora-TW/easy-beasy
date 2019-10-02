@@ -16,5 +16,4 @@ public class Pergunta {
     public String getDescricao() {
         return descricao;
     }
-
 }

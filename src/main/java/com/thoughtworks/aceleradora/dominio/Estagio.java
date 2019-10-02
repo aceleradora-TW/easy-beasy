@@ -1,5 +1,6 @@
 package com.thoughtworks.aceleradora.dominio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Estagio {
@@ -9,6 +10,7 @@ public class Estagio {
     private String nome;
 
     public Estagio() {
+        perguntas = new ArrayList<>();
     }
 
     public void setOrdem(int ordem) {
@@ -18,6 +20,7 @@ public class Estagio {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public void setSolucao(String solucao) {
         this.solucao = solucao;
     }
@@ -28,6 +31,10 @@ public class Estagio {
 
     public List<Pergunta> getPerguntas() {
         return perguntas;
+    }
+
+    public void setPerguntas(List<Pergunta> perguntas) {
+        this.perguntas = perguntas;
     }
 
     public String getSolucao() {
