@@ -8,11 +8,18 @@ public class Estagio {
     private String solucao;
     private String nome;
 
-    public Estagio(int ordem, List<Pergunta> perguntas, String solucao, String nome) {
+    public Estagio() {
+    }
+
+    public void setOrdem(int ordem) {
         this.ordem = ordem;
-        this.perguntas = perguntas;
-        this.solucao = solucao;
+    }
+
+    public void setNome(String nome) {
         this.nome = nome;
+    }
+    public void setSolucao(String solucao) {
+        this.solucao = solucao;
     }
 
     public int getOrdem() {
