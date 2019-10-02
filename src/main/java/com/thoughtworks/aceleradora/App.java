@@ -1,10 +1,6 @@
 package com.thoughtworks.aceleradora;
 
-import com.thoughtworks.aceleradora.dominio.Diagnostico;
-import com.thoughtworks.aceleradora.dominio.Estagio;
-import com.thoughtworks.aceleradora.dominio.GerenciadorArea;
-import com.thoughtworks.aceleradora.dominio.GerenciadorNivel;
-import com.thoughtworks.aceleradora.dominio.GerenciadorPergunta;
+import com.thoughtworks.aceleradora.dominio.*;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Scanner;
@@ -22,20 +18,20 @@ public class App {
         Estagio novoEstagio = new Estagio();
 
         Diagnostico novoDiagnostico = new Diagnostico();
-
+        Subnivel novoSubnivel = new Subnivel();
         GerenciadorNivel gerenciadorNivel = new GerenciadorNivel(novoDiagnostico, entrada);
-
+        GerenciadorEstagio gerenciadorEstagio = new GerenciadorEstagio(entrada, novoSubnivel);
         GerenciadorArea gerenciadorArea = new GerenciadorArea(entrada);
-
-        GerenciadorPergunta gerenciadorPergunta = new GerenciadorPergunta();
+        GerenciadorPergunta gerenciadorPergunta = new GerenciadorPergunta(novoEstagio, entradaPergunta);
 
         System.out.println("Boas vindas, {Administrador}");
         int opcao;
 
         do {
-            System.out.println("\n1 - Gerenciar niveis.");
-            System.out.println("2 - Gerenciar áreas.");
-            System.out.println("3 - Gerenciar perguntas.");
+            System.out.println("1 - Gerenciar niveis.");
+            System.out.println("2 - Gerenciar estágios");
+            System.out.println("3 - Gerenciar áreas.");
+            System.out.println("4 - Gerenciar perguntas.");
             System.out.println("0 - Sair.");
             opcao = entrada.nextInt();
 
@@ -44,9 +40,12 @@ public class App {
                     gerenciadorNivel.menuNivel();
                     break;
                 case 2:
-                    gerenciadorArea.menuArea();
+                    gerenciadorEstagio.menuEstagio();
                     break;
                 case 3:
+                    gerenciadorArea.menuArea();
+                    break;
+                case 4:
                     gerenciadorPergunta.menuPergunta();
                     break;
                 case 0:
