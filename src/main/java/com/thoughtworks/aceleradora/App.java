@@ -15,7 +15,6 @@ public class App {
 
 
     public static void main(String[] args) {
-
         Scanner entrada = new Scanner(System.in);
 
         Scanner entradaPergunta = new Scanner(System.in);
@@ -27,7 +26,8 @@ public class App {
         GerenciadorNivel gerenciadorNivel = new GerenciadorNivel(novoDiagnostico, entrada);
 
         GerenciadorArea gerenciadorArea = new GerenciadorArea(entrada);
-        GerenciadorPergunta gerenciadorPergunta = new GerenciadorPergunta(novoEstagio, entradaPergunta);
+
+        GerenciadorPergunta gerenciadorPergunta = new GerenciadorPergunta();
 
         System.out.println("Boas vindas, {Administrador}");
         int opcao;
