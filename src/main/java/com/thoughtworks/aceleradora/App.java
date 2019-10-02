@@ -13,16 +13,14 @@ public class App {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
 
-        Scanner entradaPergunta = new Scanner(System.in);
-
         Estagio novoEstagio = new Estagio();
-
         Diagnostico novoDiagnostico = new Diagnostico();
         Subnivel novoSubnivel = new Subnivel();
+
         GerenciadorNivel gerenciadorNivel = new GerenciadorNivel(novoDiagnostico, entrada);
         GerenciadorEstagio gerenciadorEstagio = new GerenciadorEstagio(entrada, novoSubnivel);
         GerenciadorArea gerenciadorArea = new GerenciadorArea(entrada);
-        GerenciadorPergunta gerenciadorPergunta = new GerenciadorPergunta(novoEstagio, entradaPergunta);
+        GerenciadorPergunta gerenciadorPergunta = new GerenciadorPergunta(novoEstagio, entrada);
 
         System.out.println("Boas vindas, {Administrador}");
         int opcao;
@@ -55,7 +53,7 @@ public class App {
                     System.out.println("Opção inválida.");
                     break;
             }
-        }while(opcao!=0);
+        } while (opcao != 0);
 
     }
 }

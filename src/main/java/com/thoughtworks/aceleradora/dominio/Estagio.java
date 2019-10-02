@@ -9,20 +9,14 @@ public class Estagio {
     private String solucao;
     private String nome;
 
-    public Estagio(){
+    public Estagio() {
         perguntas = new ArrayList<>();
-    }
-
-    public Estagio(int ordem, String solucao, String nome) {
-        this.ordem = ordem;
-        this.perguntas = perguntas;
-        this.solucao = solucao;
-        this.nome = nome;
     }
 
     public void setOrdem(int ordem) {
         this.ordem = ordem;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
