@@ -48,34 +48,42 @@ public class GerenciadorNivel {
     }
 
     private Nivel criarNivel() {
-        int ordem;
+        int ordemNumero;
+        String ordemString;
         String nome;
         boolean nomeInvalido;
         System.out.println("Digite a ordem: ");
-        do{
-            ordem = Validacoes.entradaNumero();
-            if(ordem < 0) System.out.println("Ordem Inválida, digite um número positivo.");
-        }while(ordem < 0);
+        ordemString = entrada.nextLine();
+
+        while (!Validacoes.ehNumero(ordemString)) {
+            System.out.println("Ordem inexistente. Digite um número válido!");
+            ordemString = entrada.nextLine();
+            if (ordemString.equalsIgnoreCase("cancelar")) {
+                menuNivel();
+            }
+        }
+        ordemNumero = Integer.parseInt(ordemString);
+
 
         do {
             System.out.println("Digite o nome do nível ('cancelar' para sair do programa)");
             nome = entrada.nextLine();
-            if((Validacoes.nomeInvalido(nome))){
+            if ((Validacoes.nomeInvalido(nome))) {
                 System.out.println("Nome invalido");
                 nomeInvalido = true;
-            }else{
+            } else {
                 nomeInvalido = Validacoes.nomeRepetido(novoDiagnostico.getNiveis(), nome);
-                System.out.println("Este nome ja existe, escolha outro nome.");
+                if (nomeInvalido) System.out.println("Este nome ja existe, escolha outro nome.");
             }
-        }while(nomeInvalido);
+        } while (nomeInvalido);
 
-        if(nome.equalsIgnoreCase("cancelar")) return null;
-        return new Nivel(ordem, nome);
+        if (nome.equalsIgnoreCase("cancelar")) return null;
+        return new Nivel(ordemNumero, nome);
     }
 
     private void adicionarNivel() {
         Nivel umNivel = criarNivel();
-        if(umNivel != null){
+        if (umNivel != null) {
             novoDiagnostico.getNiveis().add(umNivel);
             System.out.println("Nível criado com sucesso.");
         } else {
@@ -125,7 +133,7 @@ public class GerenciadorNivel {
         System.out.println("Qual o nome do nivel que você deseja remover?");
         String nomeNivel = entrada.nextLine();
 
-        for (int i = 0; i <novoDiagnostico.getNiveis().size() ; i++) {
+        for (int i = 0; i < novoDiagnostico.getNiveis().size(); i++) {
             if (nomeNivel.equals(novoDiagnostico.getNiveis().get(i).getNome())) {
                 novoDiagnostico.getNiveis().remove(i);
                 break;
