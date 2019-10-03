@@ -1,0 +1,45 @@
+package com.thoughtworks.aceleradora.dominio;
+
+import java.util.Scanner;
+
+import static com.thoughtworks.aceleradora.dominio.Questionario.criaDiagnostico;
+
+public class AppQuestionario {
+    public static void main(String[] args) {
+        Diagnostico novoDiagnostico = criaDiagnostico();
+        Scanner entrada = new Scanner(System.in);
+
+        System.out.println("Olá, boas-vindas. Somos a EasyBeasy.");
+
+        for (Nivel nivel : novoDiagnostico.getNiveis()) {
+            for (Subnivel subnivel : nivel.getSubnivel()) {
+                for (Estagio estagio : subnivel.getEstagios()) {
+                    int cont = 0;
+                    for (Pergunta pergunta : estagio.getPerguntas()) {
+                        String resposta;
+                        do {
+                            System.out.println(pergunta.getDescricao());
+                            resposta = entrada.nextLine();
+                            if (!resposta.equalsIgnoreCase("nao") && !resposta.equalsIgnoreCase("sim")) {
+                                System.out.println("Resposta inválida.");
+                            }
+                        } while (!resposta.equalsIgnoreCase("nao") && !resposta.equalsIgnoreCase("sim"));
+                        if (resposta.equalsIgnoreCase("nao")) {
+                            cont++;
+                        }
+                        if (cont == 3) {
+                            System.out.println(estagio.getSolucao());
+                            break;
+                        }
+                    }
+                    if (cont > 0) {
+                        System.out.println(estagio.getSolucao());
+                        break;
+                    } else {
+                        System.out.println("Congratulations Steve Jobs");
+                    }
+                }
+            }
+        }
+    }
+}
