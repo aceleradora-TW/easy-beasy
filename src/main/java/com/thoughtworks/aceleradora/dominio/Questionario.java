@@ -48,17 +48,21 @@ public class Questionario {
 
         System.out.println("Olá, boas-vindas. Somos a EasyBeasy.");
 
-
         for (Nivel nivel : novoDiagnostico.getNiveis()) {
             for (Subnivel subnivel : nivel.getSubnivel()) {
-                for (Estagio estagio : subnivel.getEstagios()){
+                for (Estagio estagio : subnivel.getEstagios()) {
                     int cont = 0;
                     for (Pergunta pergunta : estagio.getPerguntas()) {
-
-                        System.out.println(pergunta.getDescricao());
-                        String resposta = entrada.nextLine();
+                        String resposta;
+                        do {
+                            System.out.println(pergunta.getDescricao());
+                            resposta = entrada.nextLine();
+                            if (!resposta.equalsIgnoreCase("nao") && !resposta.equalsIgnoreCase("sim")) {
+                                System.out.println("Resposta inválida.");
+                            }
+                        } while (!resposta.equalsIgnoreCase("nao") && !resposta.equalsIgnoreCase("sim"));
                         if (resposta.equalsIgnoreCase("nao")) {
-                            cont ++;
+                            cont++;
                         }
                         if (cont == 3) {
                             System.out.println(estagio.getSolucao());
