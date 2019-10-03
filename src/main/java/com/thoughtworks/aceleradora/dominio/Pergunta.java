@@ -16,4 +16,12 @@ public class Pergunta {
     public String getDescricao() {
         return descricao;
     }
+
+    public void setOrdem(int ordem) {
+        this.ordem = ordem;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 }

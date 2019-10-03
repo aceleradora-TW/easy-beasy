@@ -13,11 +13,14 @@ public class App {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
 
+        Estagio novoEstagio = new Estagio();
         Diagnostico novoDiagnostico = new Diagnostico();
         Subnivel novoSubnivel = new Subnivel();
+
         GerenciadorNivel gerenciadorNivel = new GerenciadorNivel(novoDiagnostico, entrada);
         GerenciadorEstagio gerenciadorEstagio = new GerenciadorEstagio(entrada, novoSubnivel);
         GerenciadorArea gerenciadorArea = new GerenciadorArea(entrada);
+        GerenciadorPergunta gerenciadorPergunta = new GerenciadorPergunta(novoEstagio, entrada);
 
         System.out.println("Boas vindas, {Administrador}");
         int opcao;
@@ -26,6 +29,7 @@ public class App {
             System.out.println("1 - Gerenciar niveis.");
             System.out.println("2 - Gerenciar estágios");
             System.out.println("3 - Gerenciar áreas.");
+            System.out.println("4 - Gerenciar perguntas.");
             System.out.println("0 - Sair.");
             opcao = entrada.nextInt();
 
@@ -39,6 +43,9 @@ public class App {
                 case 3:
                     gerenciadorArea.menuArea();
                     break;
+                case 4:
+                    gerenciadorPergunta.menuPergunta();
+                    break;
                 case 0:
                     System.out.println("Saindo do menu.");
                     break;
@@ -46,7 +53,7 @@ public class App {
                     System.out.println("Opção inválida.");
                     break;
             }
-        }while(opcao!=0);
+        } while (opcao != 0);
 
     }
 }
