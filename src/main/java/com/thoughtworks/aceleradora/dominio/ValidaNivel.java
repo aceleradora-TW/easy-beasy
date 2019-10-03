@@ -20,5 +20,22 @@ public class ValidaNivel {
         }
         return Integer.parseInt(ordemString);
     }
+//    public String defineNome(){
+//        boolean nomeInvalido = false;
+//        String nome;
+//        do {
+//            System.out.println("Digite o nome do nível ('cancelar' para sair do programa)");
+//            nome = entrada.nextLine();
+//            if ((Validacoes.nomeInvalido(nome))) {
+//                System.out.println("Nome invalido");
+//                nomeInvalido = true;
+//            } else {
+//                nomeInvalido = Validacoes.nomeRepetido(novoDiagnostico.getNiveis(), nome);
+//                if (nomeInvalido) System.out.println("Este nome já existe, escolha outro nome.");
+//            }
+//        } while (nomeInvalido);
+//
+//        if (nome.equalsIgnoreCase("cancelar")) return null;
+//    }
 
 }

@@ -6,6 +6,7 @@ public class GerenciadorNivel {
 
     private Scanner entrada;
     private Diagnostico novoDiagnostico;
+    private ValidaNivel validaNivel = new ValidaNivel();
 
     public GerenciadorNivel(Diagnostico novoDiagnostico, Scanner entrada) {
         this.novoDiagnostico = novoDiagnostico;
@@ -48,36 +49,9 @@ public class GerenciadorNivel {
     }
 
     private Nivel criarNivel() {
-        int ordemNumero;
-        String ordemString;
-        String nome;
-        boolean nomeInvalido;
-        System.out.println("Digite a ordem: ");
-        ordemString = entrada.nextLine();
+        int ordemNumero = validaNivel.defineOrdem(this);
+        String nome="";
 
-        while (!Validacoes.ehNumero(ordemString)) {
-            System.out.println("Ordem inexistente. Digite um número válido!");
-            ordemString = entrada.nextLine();
-            if (ordemString.equalsIgnoreCase("cancelar")) {
-                menuNivel();
-            }
-        }
-        ordemNumero = Integer.parseInt(ordemString);
-
-
-        do {
-            System.out.println("Digite o nome do nível ('cancelar' para sair do programa)");
-            nome = entrada.nextLine();
-            if ((Validacoes.nomeInvalido(nome))) {
-                System.out.println("Nome invalido");
-                nomeInvalido = true;
-            } else {
-                nomeInvalido = Validacoes.nomeRepetido(novoDiagnostico.getNiveis(), nome);
-                if (nomeInvalido) System.out.println("Este nome ja existe, escolha outro nome.");
-            }
-        } while (nomeInvalido);
-
-        if (nome.equalsIgnoreCase("cancelar")) return null;
         return new Nivel(ordemNumero, nome);
     }
 
