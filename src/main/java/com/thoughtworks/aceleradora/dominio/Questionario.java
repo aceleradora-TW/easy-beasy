@@ -10,7 +10,7 @@ public class Questionario {
         List<Pergunta> novaListaPergunta = new ArrayList<>();
         Pergunta primeiraPergunta = new Pergunta(1, "Você tem uma organização de tempo e tarefas?");
         novaListaPergunta.add(primeiraPergunta);
-        Pergunta segundaPergunta = new Pergunta(2, "Você geralmente esquece de coisas que precisam ser feitas?");
+        Pergunta segundaPergunta = new Pergunta(2, "Você geralmente lembra de coisas que precisam ser feitas?");
         novaListaPergunta.add(segundaPergunta);
         Pergunta terceiraPergunta = new Pergunta(3, "Você organiza a semana em tarefas e metas a serem cumpridas?");
         novaListaPergunta.add(terceiraPergunta);
@@ -48,14 +48,19 @@ public class Questionario {
 
         System.out.println("Olá, boas-vindas. Somos a EasyBeasy.");
 
+
         for (Nivel nivel : novoDiagnostico.getNiveis()) {
             for (Subnivel subnivel : nivel.getSubnivel()) {
                 for (Estagio estagio : subnivel.getEstagios()){
+                    int cont = 0;
                     for (Pergunta pergunta : estagio.getPerguntas()) {
 
                         System.out.println(pergunta.getDescricao());
                         String resposta = entrada.nextLine();
                         if (resposta.equalsIgnoreCase("nao")) {
+                            cont ++;
+                        }
+                        if (cont == 2) {
                             System.out.println(estagio.getSolucao());
                             break;
                         }
