@@ -1,5 +1,7 @@
 package com.thoughtworks.aceleradora.dominio;
 
+import com.thoughtworks.aceleradora.dominio.servico.ValidadorDeNivel;
+
 import java.util.Scanner;
 
 public class GerenciadorNivel {
@@ -13,17 +15,28 @@ public class GerenciadorNivel {
     }
 
     private Nivel criarNivel() {
+        // aqui apenas a classe gerenciador conhece os SysOut, ou seja as perguntas e os inputs do usuário
         System.out.println("Digite a ordem");
-        int ordem = entrada.nextInt();
-        entrada.nextLine();
+        String ordem = entrada.nextLine();
 
         System.out.println("Digite o nome do nível");
         String nome = entrada.nextLine();
-        return new Nivel(ordem, nome);
+
+        // classe que conhece somente a validaçao da classe de dominio
+        ValidadorDeNivel validador = new ValidadorDeNivel();
+        validador.validar(ordem, nome);
+
+        if (!validador.ehValida()) {
+            System.out.println(validador.getErros());
+            return null;
+        }
+
+        // como ja validamos se os imputs do usuário são válidos nao nos preocupamos em criar
+        // uma instancia nova
+        return new Nivel(Integer.parseInt(ordem), nome);
     }
 
     private void adicionarNivel() {
-
         novoDiagnostico.getNiveis().add(criarNivel());
     }
 
@@ -69,7 +82,7 @@ public class GerenciadorNivel {
         System.out.println("Qual o nome do nivel que você deseja remover?");
         String nomeNivel = entrada.nextLine();
 
-        for (int i = 0; i <novoDiagnostico.getNiveis().size() ; i++) {
+        for (int i = 0; i < novoDiagnostico.getNiveis().size(); i++) {
             if (nomeNivel.equals(novoDiagnostico.getNiveis().get(i).getNome())) {
                 novoDiagnostico.getNiveis().remove(i);
                 break;
