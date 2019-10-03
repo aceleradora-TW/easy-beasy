@@ -37,6 +37,10 @@ public class Nivel {
         this.nome = nome;
     }
 
+    public List<Subnivel> getSubnivel() {
+        return subnivel;
+    }
+
     @Override
     public String toString() {
         return "Ordem: " + ordem + ", Nome: " + nome;

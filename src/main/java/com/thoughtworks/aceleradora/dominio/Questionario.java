@@ -2,10 +2,11 @@ package com.thoughtworks.aceleradora.dominio;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Questionario {
 
-    public static void main(String[] args) {
+    public static Diagnostico criaDiagnostico() {
         List<Pergunta> novaListaPergunta = new ArrayList<>();
         Pergunta primeiraPergunta = new Pergunta(1, "Você tem uma organização de tempo e tarefas?");
         novaListaPergunta.add(primeiraPergunta);
@@ -38,6 +39,29 @@ public class Questionario {
         List<Nivel> listaNiveis = new ArrayList<>();
         listaNiveis.add(nivel);
 
-        Diagnostico diagnostico = new Diagnostico(listaNiveis);
+        return new Diagnostico(listaNiveis);
+    }
+
+    public static void main(String[] args) {
+        Diagnostico novoDiagnostico = criaDiagnostico();
+        Scanner entrada = new Scanner(System.in);
+
+        System.out.println("Olá, boas-vindas. Somos a EasyBeasy.");
+
+        for (Nivel nivel : novoDiagnostico.getNiveis()) {
+            for (Subnivel subnivel : nivel.getSubnivel()) {
+                for (Estagio estagio : subnivel.getEstagios()){
+                    for (Pergunta pergunta : estagio.getPerguntas()) {
+
+                        System.out.println(pergunta.getDescricao());
+                        String resposta = entrada.nextLine();
+                        if (resposta.equalsIgnoreCase("nao")) {
+                            System.out.println(estagio.getSolucao());
+                            break;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
