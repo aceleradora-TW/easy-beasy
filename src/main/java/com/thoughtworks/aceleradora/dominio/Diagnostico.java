@@ -10,6 +10,10 @@ public class Diagnostico {
         niveis = new ArrayList<>();
     }
 
+    public Diagnostico(List<Nivel> niveis) {
+        this.niveis = niveis;
+    }
+
     public List<Nivel> getNiveis(){
         return niveis;
     }
