@@ -1,24 +1,24 @@
 package com.thoughtworks.aceleradora.dominio;
 
-import org.springframework.web.context.request.AbstractRequestAttributesScope;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class GerenciadorArea {
     private Scanner entrada;
-    private List<Area> areas = new ArrayList<>();
+    private List<Area> areas;
 
-    public GerenciadorArea(Scanner entrada) {
+    public GerenciadorArea(List<Area> novaArea, Scanner entrada) {
         this.entrada = entrada;
+        this.areas = novaArea;
     }
 
     public Area criarArea() {
         System.out.println("Digite o nome desejado para sua área");
         String nome = entrada.nextLine();
+        Area area = new Area(nome);
 
-        return new Area(nome);
+        return area;
     }
 
     public void adicionarArea() {
@@ -49,6 +49,7 @@ public class GerenciadorArea {
         } else
             System.out.println("Você não tem nenhuma área para ser removida!");
     }
+
 
     public void editarArea() {
         if (!areas.isEmpty()) {

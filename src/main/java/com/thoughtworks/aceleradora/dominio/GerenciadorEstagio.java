@@ -34,6 +34,7 @@ public class GerenciadorEstagio {
     private void adicionarEstagio(){
         novoSubnivel.getEstagios().add(criarEstagio());
     }
+
     private String listarEstagios(){
         String retorno = "";
         if (novoSubnivel.getEstagios().isEmpty()){

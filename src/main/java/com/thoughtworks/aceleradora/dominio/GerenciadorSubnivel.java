@@ -1,27 +1,45 @@
 package com.thoughtworks.aceleradora.dominio;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class GerenciadorSubnivel {
+    private List<Area> areas;
     private Scanner entrada;
     private Nivel novoNivel;
+    GerenciadorArea gerenciadorArea;
+    Subnivel subnivel =  new Subnivel();
 
-    public GerenciadorSubnivel(Nivel novoNivel, Scanner entrada) {
+
+    public GerenciadorSubnivel(Nivel novoNivel,GerenciadorArea gerenciadorArea, Scanner entrada) {
         this.entrada = entrada;
         this.novoNivel = novoNivel;
+        this.gerenciadorArea = gerenciadorArea;
+
     }
 
     private Subnivel criarSubnivel() {
+
+        gerenciadorArea.listarArea();
+
         System.out.println("Digite a ordem do subnivel");
         int ordemSubnivel = entrada.nextInt();
         entrada.nextLine();
 
-        System.out.println("Informe uma area para este subnivel");
-        String area = entrada.nextLine();
+        System.out.println("Informe o nome da area para este subnível.");
+        String entradaArea = entrada.nextLine();
+        entrada.nextLine();
 
-        Area nomeArea = new Area(area);
-
-        return new Subnivel(ordemSubnivel,nomeArea);
+        if(!areas.isEmpty()) {
+            for (Area area : areas) {
+                if (entradaArea.equals(area.getNome())) {
+                    subnivel = new Subnivel(ordemSubnivel, area);
+                }
+            }
+        } else {
+            System.out.println("Área não encontrada");
+        }
+        return subnivel;
     }
 
     private void adicionarSubnivel() {
