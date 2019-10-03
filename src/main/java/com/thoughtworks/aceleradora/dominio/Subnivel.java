@@ -1,5 +1,6 @@
 package com.thoughtworks.aceleradora.dominio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Subnivel {
@@ -8,6 +9,7 @@ public class Subnivel {
     private List<Estagio> estagios;
 
     public Subnivel() {
+        estagios = new ArrayList<>();
     }
 
     public Subnivel(int ordem, Area area) {
