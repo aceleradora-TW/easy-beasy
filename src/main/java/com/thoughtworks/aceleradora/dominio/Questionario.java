@@ -60,10 +60,16 @@ public class Questionario {
                         if (resposta.equalsIgnoreCase("nao")) {
                             cont ++;
                         }
-                        if (cont == 2) {
+                        if (cont == 3) {
                             System.out.println(estagio.getSolucao());
                             break;
                         }
+                    }
+                    if (cont > 0) {
+                        System.out.println(estagio.getSolucao());
+                        break;
+                    } else {
+                        System.out.println("Congratulations Steve Jobs");
                     }
                 }
             }
