@@ -1,7 +1,5 @@
 package com.thoughtworks.aceleradora.dominio;
 
-import org.springframework.web.context.request.AbstractRequestAttributesScope;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;

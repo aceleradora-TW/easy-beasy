@@ -31,15 +31,17 @@ public class GerenciadorEstagio {
 
         return novoEstagio;
     }
-    private void adicionarEstagio(){
+
+    private void adicionarEstagio() {
         novoSubnivel.getEstagios().add(criarEstagio());
     }
-    private String listarEstagios(){
+
+    private String listarEstagios() {
         String retorno = "";
-        if (novoSubnivel.getEstagios().isEmpty()){
+        if (novoSubnivel.getEstagios().isEmpty()) {
             System.out.println("Lista vazia");
         }
-        for (Estagio estagio: novoSubnivel.getEstagios()) {
+        for (Estagio estagio : novoSubnivel.getEstagios()) {
             retorno += "ordem: " + estagio.getOrdem() + " nome: " + estagio.getNome() + " solução: " + estagio.getSolucao();
         }
         return retorno;
@@ -52,7 +54,7 @@ public class GerenciadorEstagio {
         String nomeEscolhido = entrada.nextLine();
 
 
-        for (Estagio estagio: novoSubnivel.getEstagios()) {
+        for (Estagio estagio : novoSubnivel.getEstagios()) {
             if (estagio.getNome().equals(nomeEscolhido)) {
                 System.out.println("Você deseja alterar a ordem, nome ou solução ?");
                 System.out.println("1 - Alterar ordem");
@@ -76,6 +78,7 @@ public class GerenciadorEstagio {
             }
         }
     }
+
     private void removerEstagio() {
 
         System.out.println(listarEstagios());
@@ -83,7 +86,7 @@ public class GerenciadorEstagio {
         System.out.println("Qual o nome do estágio que você deseja remover?");
         String nomeEstagio = entrada.nextLine();
 
-        for (int i = 0; i <novoSubnivel.getEstagios().size() ; i++) {
+        for (int i = 0; i < novoSubnivel.getEstagios().size(); i++) {
             if (nomeEstagio.equals(novoSubnivel.getEstagios().get(i).getNome())) {
                 novoSubnivel.getEstagios().remove(i);
                 break;
@@ -113,7 +116,7 @@ public class GerenciadorEstagio {
                 case 3:
                     editarEstagio();
                     break;
-                    case 4:
+                case 4:
                     removerEstagio();
                     break;
                 case 0:
