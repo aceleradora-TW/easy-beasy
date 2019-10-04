@@ -7,7 +7,6 @@ public class GerenciadorSubnivel {
     private Scanner entrada;
     private Nivel novoNivel;
     GerenciadorArea gerenciadorArea;
-    Subnivel subnivel =  new Subnivel();
 
 
     public GerenciadorSubnivel(Nivel novoNivel, GerenciadorArea gerenciadorArea, Scanner entrada) {
@@ -19,11 +18,10 @@ public class GerenciadorSubnivel {
 
     private Subnivel criarSubnivel() {
 
+        System.out.println(" Lista de Áreas ");
         gerenciadorArea.listarArea();
 
-        Area cloneArea = null;
-
-        System.out.println("Digite a ordem do subnivel");
+        System.out.println("\nDigite a ordem do subnivel");
         int ordemSubnivel = entrada.nextInt();
         entrada.nextLine();
 
@@ -33,22 +31,23 @@ public class GerenciadorSubnivel {
         if(!gerenciadorArea.getAreas().isEmpty()) {
             for (Area area: gerenciadorArea.getAreas()) {
                 if (entradaArea.equals(gerenciadorArea.getArea())){
-                    cloneArea = (Area) gerenciadorArea.clone();
-                    subnivel.setOrdem(ordemSubnivel);
-                    subnivel.setArea(cloneArea);
-                }   else {
-                    System.out.println(" Não foi localizada esta Área  **** subnivel não criado ****");
+                    return new Subnivel(ordemSubnivel, area);
                 }
             }
         } else {
             System.out.println(" Ainda não tem nenhuma Área, para cadastrar volto ao menu anterior ");
         }
 
-        return subnivel;
+        return null;
     }
 
     private void adicionarSubnivel() {
-        novoNivel.getSubniveis().add(criarSubnivel());
+        Subnivel subnivel = criarSubnivel();
+        if(subnivel!=null) {
+            novoNivel.getSubniveis().add(subnivel);
+        } else {
+            System.out.println("Área não existe -> Subnível não criado.");
+        }
     }
 
     private String listarSubniveis() {

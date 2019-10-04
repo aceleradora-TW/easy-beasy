@@ -122,12 +122,4 @@ public class GerenciadorArea {
             }
         } while (opcao != 0);
     }
-    @Override
-    public Object clone() {
-        try {
-            return super.clone();
-        } catch (CloneNotSupportedException e) {
-            return null;
-        }
-    }
 }
