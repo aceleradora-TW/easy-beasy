@@ -7,10 +7,22 @@ import java.util.Scanner;
 public class GerenciadorArea {
     private Scanner entrada;
     private List<Area> areas;
+    private Nivel nivel;
 
     public GerenciadorArea(List<Area> novaArea, Scanner entrada) {
         this.entrada = entrada;
         this.areas = novaArea;
+    }
+
+    public String getArea() {
+        for (Area area : areas) {
+           return area.getNome();
+        }
+        return "";
+    }
+
+    public List<Area> getAreas() {
+        return areas;
     }
 
     public Area criarArea() {
@@ -42,8 +54,15 @@ public class GerenciadorArea {
 
             for (Area area : areas) {
                 if (areaSelecionada.equalsIgnoreCase(area.getNome())) {
-                    areas.remove(area);
-                    break;
+                    for (int i = 0; i < nivel.getSubniveis().size() ; i++) {
+                        if (areaSelecionada.equals(nivel.getSubniveis().get(i).getArea())){
+                            System.out.println(" Esta Área esta vinculada a um Subnivel, não pode ser removida");
+                        }
+                        else {
+                            areas.remove(area);
+                            break;
+                        }
+                    }
                 }
             }
         } else
@@ -102,5 +121,13 @@ public class GerenciadorArea {
                     break;
             }
         } while (opcao != 0);
+    }
+    @Override
+    public Object clone() {
+        try {
+            return super.clone();
+        } catch (CloneNotSupportedException e) {
+            return null;
+        }
     }
 }
