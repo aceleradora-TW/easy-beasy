@@ -6,7 +6,6 @@ public class GerenciadorNivel {
 
     private Scanner entrada;
     private Diagnostico novoDiagnostico;
-    private ValidadorNivel validadorNivel = new ValidadorNivel();
 
     public GerenciadorNivel(Diagnostico novoDiagnostico, Scanner entrada) {
         this.novoDiagnostico = novoDiagnostico;
@@ -56,7 +55,7 @@ public class GerenciadorNivel {
         String nome = entrada.nextLine();
 
         ValidadorNivel validadorNivel = new ValidadorNivel();
-        validadorNivel.validar(ordemString, nome);
+        validadorNivel.validar(ordemString, nome, novoDiagnostico.getNiveis());
 
         if (!validadorNivel.ehValida()) {
             System.out.println(validadorNivel.getErros());

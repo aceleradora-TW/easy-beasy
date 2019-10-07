@@ -1,11 +1,13 @@
 package com.thoughtworks.aceleradora.dominio;
 
+import java.util.List;
+
 public class ValidadorNivel extends ValidacoesBase {
 
     @Override
-    public void validar(String ordem, String nome) {
+    public void validar(String ordem, String nome, List<Nivel> niveis) {
         validaOrdem(ordem);
-        validaNome(nome);
+        validaNome(nome, niveis);
     }
 
     private void validaOrdem(String ordem) {
@@ -14,9 +16,11 @@ public class ValidadorNivel extends ValidacoesBase {
         }
     }
 
-    private void validaNome(String nome) {
+    private void validaNome(String nome, List<Nivel> niveis) {
         if (ValidacoesBase.nomeInvalido(nome)) {
             erros.add("Nome do nível não pode estar em branco, e não pode começar com espaço!");
+        }else if(ValidacoesBase.nomeRepetido(nome, niveis)) {
+            erros.add("Esse nome já existe");
         }
     }
 }
