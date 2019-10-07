@@ -7,7 +7,7 @@ public abstract class ValidacoesBase {
 
     protected final List<String> erros = new ArrayList<>();
 
-    public abstract void validar(String ordem, String nome);
+    public abstract void validar(String ordem, String nome, List<Nivel> niveis);
 
 
     public static boolean ehNumero(String entrada) {
@@ -27,6 +27,15 @@ public abstract class ValidacoesBase {
         if (nome.startsWith(" ") || nome.isEmpty())
             return true;
 
+        return false;
+    }
+
+    public static boolean nomeRepetido(String nome, List<Nivel> niveis) {
+        for (Nivel nivelAux : niveis) {
+            if (nivelAux.getNome().equalsIgnoreCase(nome)) {
+                return true;
+            }
+        }
         return false;
     }
 
