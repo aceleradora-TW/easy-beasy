@@ -18,6 +18,14 @@ public abstract class Validacoes {
         }
         return true;
     }
+    public boolean ehValida(){
+        if (erros.isEmpty()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
 //    public static boolean nomeRepetido(List<Nivel> niveis, String nome) {
 //        for (Nivel nivelAux : niveis) {
