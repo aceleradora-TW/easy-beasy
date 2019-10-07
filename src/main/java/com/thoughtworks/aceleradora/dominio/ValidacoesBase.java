@@ -24,13 +24,13 @@ public abstract class ValidacoesBase {
     }
 
     public String getErros() {
-        String mensagemDeErro = "";
+        String mensagensDeErros = "";
 
         for (String capturaErros : erros) {
-            mensagemDeErro += "\n" + capturaErros;
+            mensagensDeErros += "\n" + capturaErros;
         }
 
-        return mensagemDeErro;
+        return mensagensDeErros;
     }
 
 
