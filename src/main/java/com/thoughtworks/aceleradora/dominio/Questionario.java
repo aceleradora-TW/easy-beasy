@@ -1,46 +1,37 @@
 package com.thoughtworks.aceleradora.dominio;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Questionario {
 
     public static Diagnostico criaDiagnostico() {
-        List<Pergunta> perguntasP1 = new ArrayList<>();
-        Pergunta pergunta = new Pergunta(1, "Você tem uma organização de tempo e tarefas?");
-        perguntasP1.add(pergunta);
-        pergunta = new Pergunta(2, "Você geralmente lembra de coisas que precisam ser feitas?");
-        perguntasP1.add(pergunta);
-        pergunta = new Pergunta(3, "Você organiza a semana em tarefas e metas a serem cumpridas?");
-        perguntasP1.add(pergunta);
-        pergunta = new Pergunta(4, "Você utiliza alguma ferramenta ou estratégia para organizar a sua semana?");
-        perguntasP1.add(pergunta);
+        List<Pergunta> perguntasP1 = Arrays.asList(
+                new Pergunta(1, "Você tem uma organização de tempo e tarefas?"),
+                new Pergunta(2, "Você geralmente lembra de coisas que precisam ser feitas?"),
+                new Pergunta(3, "Você organiza a semana em tarefas e metas a serem cumpridas?"),
+                new Pergunta(4, "Você utiliza alguma ferramenta ou estratégia para organizar a sua semana?")
+        );
 
-        List<Pergunta> perguntasP2 = new ArrayList<>();
-        pergunta = new Pergunta(1, "Você tem um controle do dinheiro que entra e sai da empresa?");
-        perguntasP2.add(pergunta);
-        pergunta = new Pergunta(2, "Você sabe para onde foi todo o dinheiro ganho com a empresa?");
-        perguntasP2.add(pergunta);
-        pergunta = new Pergunta(3, "Você sabe quanto dinheiro é gasto para sustentar o negócio?");
-        perguntasP2.add(pergunta);
-        pergunta = new Pergunta(4, "Você sabe qual é o faturamento mensal da empresa?");
-        perguntasP2.add(pergunta);
+        List<Pergunta> perguntasP2 = Arrays.asList(
+                new Pergunta(1, "Você tem um controle do dinheiro que entra e sai da empresa?"),
+                new Pergunta(2, "Você sabe para onde foi todo o dinheiro ganho com a empresa?"),
+                new Pergunta(3, "Você sabe quanto dinheiro é gasto para sustentar o negócio?"),
+                new Pergunta(4, "Você sabe qual é o faturamento mensal da empresa?")
+        );
 
-        List<Pergunta> perguntasFA1 = new ArrayList<>();
-        pergunta = new Pergunta(1, "Você tem controle sobre as despesas da empresa?");
-        perguntasFA1.add(pergunta);
-        pergunta = new Pergunta(2, "Você reconhece que suas horas de trabalho também entram nos custos da empresa?");
-        perguntasFA1.add(pergunta);
-        pergunta = new Pergunta(3, "Você sabe quais são os custos fixos e variáveis da sua empresa?");
-        perguntasFA1.add(pergunta);
+        List<Pergunta> perguntasFA1 = Arrays.asList(
+                new Pergunta(1, "Você tem controle sobre as despesas da empresa?"),
+                new Pergunta(2, "Você reconhece que suas horas de trabalho também entram nos custos da empresa?"),
+                new Pergunta(3, "Você sabe quais são os custos fixos e variáveis da sua empresa?")
+        );
 
-        List<Pergunta> perguntasFA2 = new ArrayList<>();
-        pergunta = new Pergunta(1, "Você sabe quanto custa fazer o seu produto?");
-        perguntasFA2.add(pergunta);
-        pergunta = new Pergunta(2, "Você sabe qual é o custo por mercadoria/serviço vendido?");
-        perguntasFA2.add(pergunta);
-        pergunta = new Pergunta(3, "Você entende que o custo de cada produto pode variar de acordo com a quantidade produzida?");
-        perguntasFA2.add(pergunta);
+        List<Pergunta> perguntasFA2 = Arrays.asList(
+                new Pergunta(1, "Você sabe quanto custa fazer o seu produto?"),
+                new Pergunta(2, "Você sabe qual é o custo por mercadoria/serviço vendido?"),
+                new Pergunta(3, "Você entende que o custo de cada produto pode variar de acordo com a quantidade produzida?")
+        );
 
         List<Estagio> estagiosOrganizacao = new ArrayList<>();
         List<Estagio> estagiosFinanceiro = new ArrayList<>();
@@ -80,7 +71,6 @@ public class Questionario {
                 "Entender que a quantidade de produção de serviços e produtos impacta diretamente no custo de cada serviço é fundamental para solucionar problemas financeiros.\n" +
                         "https://medium.com/@easybeasybr/custo-do-meu-produto-fa2-75d576cb3767\n");
         estagiosFinanceiro.add(estagio);
-
 
 
         Area areaOrganizacao = new Area("Organizacional");
