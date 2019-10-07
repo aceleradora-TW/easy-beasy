@@ -2,21 +2,14 @@ package com.thoughtworks.aceleradora.dominio;
 
 public class ValidadorNivel extends ValidacoesBase {
 
-
     @Override
     public void validar(String ordem, String nome) {
-
-        String ordemRecebida = ordem;
-        String nomeRecebido = nome;
-
-        validaOrdem(ordemRecebida);
-        validaNome(nomeRecebido);
+        validaOrdem(ordem);
+        validaNome(nome);
     }
 
     private void validaOrdem(String ordem) {
-        try {
-            Integer.parseInt(ordem);
-        } catch (RuntimeException ex) {
+        if (!ValidacoesBase.ehNumero(ordem)){
             erros.add("Ordem deve ser um número!");
         }
     }
