@@ -3,7 +3,7 @@ package com.thoughtworks.aceleradora.dominio;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Validacoes {
+public abstract class ValidacoesBase {
 
     protected final List<String> erros= new ArrayList<>();
 
@@ -37,6 +37,8 @@ public abstract class Validacoes {
 
         return mensagemDeErro;
     }
+
+
 
 //    public static boolean nomeRepetido(List<Nivel> niveis, String nome) {
 //        for (Nivel nivelAux : niveis) {

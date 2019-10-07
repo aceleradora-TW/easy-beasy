@@ -2,21 +2,31 @@ package com.thoughtworks.aceleradora.dominio;
 
 import java.util.Scanner;
 
-public class ValidadorNivel extends Validacoes {
+public class ValidadorNivel extends ValidacoesBase {
 
-    Scanner entrada = new Scanner(System.in);
 
-    public int defineOrdem(GerenciadorNivel gerenciadorNivel, String ordemString){
+    @Override
+    public void validar(String ordem, String nome) {
 
-        while (!Validacoes.ehNumero(ordemString)) {
-            System.out.println("Ordem inexistente. Digite um número válido!");
-            ordemString = entrada.nextLine();
-            if (ordemString.equalsIgnoreCase("cancelar")) {
-                gerenciadorNivel.menuNivel();
-            }
-        }
-        return Integer.parseInt(ordemString);
+        String ordemRecebida = ordem;
+        String nomeRecebido = nome;
+
     }
+
+}
+
+//    public int defineOrdem(GerenciadorNivel gerenciadorNivel, String ordemString){
+//
+//        while (!ValidacoesBase.ehNumero(ordemString)) {
+//            System.out.println("Ordem inexistente. Digite um número válido!");
+//            ordemString = entrada.nextLine();
+//            if (ordemString.equalsIgnoreCase("cancelar")) {
+//                gerenciadorNivel.menuNivel();
+//            }
+//        }
+//        return Integer.parseInt(ordemString);
+//    }
+//
 //    public String defineNome(){
 //        boolean nomeInvalido = false;
 //        String nome;
@@ -34,5 +44,5 @@ public class ValidadorNivel extends Validacoes {
 //
 //        if (nome.equalsIgnoreCase("cancelar")) return null;
 //    }
-
-}
+//
+//}
