@@ -8,6 +8,7 @@ public class Nivel {
     private String nome;
     private List<Subnivel> subniveis;
 
+
     public Nivel() {
         subniveis = new ArrayList<>();
     }
@@ -15,6 +16,13 @@ public class Nivel {
     public Nivel(int ordem, String nome) {
         this.ordem = ordem;
         this.nome = nome;
+        subniveis = new ArrayList<>();
+    }
+
+    public Nivel(int ordem, String nome, List<Subnivel> subniveis) {
+        this.ordem = ordem;
+        this.nome = nome;
+        this.subniveis = subniveis;
     }
     public List<Subnivel> getSubniveis() {
         return subniveis;

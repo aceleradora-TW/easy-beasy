@@ -33,6 +33,10 @@ public class Estagio {
         return perguntas;
     }
 
+    public void setPerguntas(List<Pergunta> perguntas) {
+        this.perguntas = perguntas;
+    }
+
     public String getSolucao() {
         return solucao;
     }

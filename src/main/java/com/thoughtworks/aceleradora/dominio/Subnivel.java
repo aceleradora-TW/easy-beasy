@@ -12,6 +12,12 @@ public class Subnivel {
         estagios = new ArrayList<>();
     }
 
+    public Subnivel(int ordem, Area area, List<Estagio> estagios) {
+        this.ordem = ordem;
+        this.area = area;
+        this.estagios = estagios;
+    }
+
     public Subnivel(int ordem, Area area) {
         this.ordem = ordem;
         this.area = area;
