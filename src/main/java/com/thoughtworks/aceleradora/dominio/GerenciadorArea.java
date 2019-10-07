@@ -1,6 +1,5 @@
 package com.thoughtworks.aceleradora.dominio;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,49 +13,41 @@ public class GerenciadorArea {
         this.areas = novaArea;
     }
 
-    public String getArea() {
-        for (Area area : areas) {
-           return area.getNome();
-        }
-        return "";
-    }
-
-    public List<Area> getAreas() {
+    List<Area> getAreas() {
         return areas;
     }
 
-    public Area criarArea() {
-        System.out.println("Digite o nome desejado para sua área");
+    private Area criarArea() {
+        System.out.println("\nDigite o nome desejado para sua área");
         String nome = entrada.nextLine();
-        Area area = new Area(nome);
 
-        return area;
+        return new Area(nome);
     }
 
-    public void adicionarArea() {
+    private void adicionarArea() {
         areas.add(criarArea());
     }
 
-    public void listarArea() {
+    void listarArea() {
         if (!areas.isEmpty()) {
             for (Area area : areas) {
                 System.out.println(area.getNome());
             }
         } else
-            System.out.println("Você ainda não adicionou nenhuma área!");
+            System.out.println("\nVocê ainda não adicionou nenhuma área!");
     }
 
-    public void removerArea() {
+    private void removerArea() {
         if (!areas.isEmpty()) {
             listarArea();
-            System.out.println("Digite o nome da área que você deseja remover");
+            System.out.println("\nDigite o nome da área que você deseja remover");
             String areaSelecionada = entrada.nextLine();
 
             for (Area area : areas) {
                 if (areaSelecionada.equalsIgnoreCase(area.getNome())) {
                     for (int i = 0; i < nivel.getSubniveis().size() ; i++) {
                         if (areaSelecionada.equals(nivel.getSubniveis().get(i).getArea())){
-                            System.out.println(" Esta Área esta vinculada a um Subnivel, não pode ser removida");
+                            System.out.println("\nESta área não pode ser removida pois está vinculada a um subnível");
                         }
                         else {
                             areas.remove(area);
@@ -66,16 +57,16 @@ public class GerenciadorArea {
                 }
             }
         } else
-            System.out.println("Você não tem nenhuma área para ser removida!");
+            System.out.println("\nVocê não tem nenhuma área para ser removida!");
     }
 
 
-    public void editarArea() {
+    private void editarArea() {
         if (!areas.isEmpty()) {
             listarArea();
-            System.out.println("Digite o nome da área que você deseja editar");
+            System.out.println("\nDigite o nome da área que você deseja editar");
             String areaSelecionada = entrada.nextLine();
-            System.out.println("Digite o novo nome da área");
+            System.out.println("\nDigite o novo nome da área");
             String areaAtualizada = entrada.nextLine();
 
             for (int i = 0; i < areas.size(); i++) {
@@ -85,14 +76,14 @@ public class GerenciadorArea {
                 }
             }
         } else
-            System.out.println("Você não tem nenhuma área para editar!");
+            System.out.println("\nVocê não tem nenhuma área para editar!");
     }
 
     public void menuArea() {
         int opcao;
         do {
             System.out.println("Digite a opção desejada");
-            System.out.println("1 - Adicionar área");
+            System.out.println("\n1 - Adicionar área");
             System.out.println("2 - Listar área");
             System.out.println("3 - Editar área");
             System.out.println("4 - Remover área");
