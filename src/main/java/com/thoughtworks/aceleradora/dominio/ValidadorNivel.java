@@ -1,7 +1,5 @@
 package com.thoughtworks.aceleradora.dominio;
 
-import java.util.Scanner;
-
 public class ValidadorNivel extends ValidacoesBase {
 
 
@@ -11,6 +9,14 @@ public class ValidadorNivel extends ValidacoesBase {
         String ordemRecebida = ordem;
         String nomeRecebido = nome;
 
+        validaOrdem(ordemRecebida);
+    }
+    private void validaOrdem(String ordem) {
+        try {
+            Integer.parseInt(ordem);
+        }catch(RuntimeException ex) {
+            erros.add("Ordem deve ser um número!");
+        }
     }
 
 }
