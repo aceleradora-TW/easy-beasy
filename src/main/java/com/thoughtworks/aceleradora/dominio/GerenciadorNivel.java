@@ -55,11 +55,11 @@ public class GerenciadorNivel {
         System.out.println("Digite o nome do nível");
         String nome = entrada.nextLine();
 
-        ValidadorNivel validador = new ValidadorNivel();
-        validador.validar(ordemString, nome);
+        ValidadorNivel validadorNivel = new ValidadorNivel();
+        validadorNivel.validar(ordemString, nome);
 
-        if (!validador.ehValida()) {
-            System.out.println(validador.getErros());
+        if (!validadorNivel.ehValida()) {
+            System.out.println(validadorNivel.getErros());
             return null;
         }
 
