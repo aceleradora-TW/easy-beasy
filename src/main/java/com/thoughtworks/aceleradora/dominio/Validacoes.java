@@ -18,6 +18,7 @@ public abstract class Validacoes {
         }
         return true;
     }
+
     public boolean ehValida(){
         if (erros.isEmpty()){
             return true;
@@ -25,6 +26,16 @@ public abstract class Validacoes {
         else{
             return false;
         }
+    }
+
+    public String getErros(){
+        String mensagemDeErro = "";
+
+        for ( String capturaErros : erros) {
+            mensagemDeErro += "\n" + capturaErros;
+        }
+
+        return mensagemDeErro;
     }
 
 //    public static boolean nomeRepetido(List<Nivel> niveis, String nome) {
