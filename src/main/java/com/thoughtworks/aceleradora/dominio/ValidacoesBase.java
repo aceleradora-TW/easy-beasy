@@ -5,7 +5,7 @@ import java.util.List;
 
 public abstract class ValidacoesBase {
 
-    protected final List<String> erros= new ArrayList<>();
+    protected final List<String> erros = new ArrayList<>();
 
     public abstract void validar(String ordem, String nome);
 
@@ -19,25 +19,23 @@ public abstract class ValidacoesBase {
         return true;
     }
 
-    public boolean ehValida(){
-        if (erros.isEmpty()){
+    public boolean ehValida() {
+        if (erros.isEmpty()) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
     }
 
-    public String getErros(){
+    public String getErros() {
         String mensagemDeErro = "";
 
-        for ( String capturaErros : erros) {
+        for (String capturaErros : erros) {
             mensagemDeErro += "\n" + capturaErros;
         }
 
         return mensagemDeErro;
     }
-
 
 
 //    public static boolean nomeRepetido(List<Nivel> niveis, String nome) {
