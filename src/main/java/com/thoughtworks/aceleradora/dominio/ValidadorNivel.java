@@ -18,8 +18,14 @@ public class ValidadorNivel extends ValidacoesBase {
 
     private void validaNome(String nome, List<Nivel> niveis) {
         if (ValidacoesBase.nomeInvalido(nome)) {
-            erros.add("Nome do nível não pode estar em branco, e não pode começar com espaço!");
-        }else if(ValidacoesBase.nomeRepetido(nome, niveis)) {
+            if (nome.isEmpty()){
+                erros.add("Nome do nível não pode estar em branco");
+            }
+            else{
+                erros.add("Nome do nível não pode começar com espaço!");
+            }
+        }
+        else if(ValidacoesBase.nomeRepetido(nome, niveis)) {
             erros.add("Esse nome já existe");
         }
     }
