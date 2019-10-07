@@ -55,9 +55,15 @@ public class GerenciadorNivel {
         System.out.println("Digite o nome do nível");
         String nome = entrada.nextLine();
 
-        int ordemNumero = validadorNivel.defineOrdem(this, ordemString);
+        ValidadorNivel validador = new ValidadorNivel();
+        validador.validar(ordemString, nome);
 
-        return new Nivel(ordemNumero, nome);
+        if (!validador.ehValida()) {
+            System.out.println(validador.getErros());
+            return null;
+        }
+
+        return new Nivel(Integer.parseInt(ordemString), nome);
     }
 
     private void adicionarNivel() {
