@@ -20,11 +20,7 @@ public abstract class ValidacoesBase {
     }
 
     public boolean ehValida() {
-        if (erros.isEmpty()) {
-            return true;
-        } else {
-            return false;
-        }
+        return erros.isEmpty();
     }
 
     public String getErros() {
