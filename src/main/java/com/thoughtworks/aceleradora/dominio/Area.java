@@ -8,7 +8,6 @@ public class Area {
     }
 
     public String getNome() {
-
         return nome;
     }
 

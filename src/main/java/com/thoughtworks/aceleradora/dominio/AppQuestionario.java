@@ -12,7 +12,7 @@ public class AppQuestionario {
         System.out.println("Olá, boas-vindas. Somos a EasyBeasy.");
 
             for (Nivel nivel : novoDiagnostico.getNiveis()) {
-                for (Subnivel subnivel : nivel.getSubnivel()) {
+                for (Subnivel subnivel : nivel.getSubniveis()) {
                     for (Estagio estagio : subnivel.getEstagios()) {
                         int cont = 0;
                         for (Pergunta pergunta : estagio.getPerguntas()) {

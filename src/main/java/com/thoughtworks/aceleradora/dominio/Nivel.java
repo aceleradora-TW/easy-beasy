@@ -6,19 +6,26 @@ import java.util.List;
 public class Nivel {
     private int ordem;
     private String nome;
-    private List<Subnivel> subnivel;
+    private List<Subnivel> subniveis;
 
+
+    public Nivel() {
+        subniveis = new ArrayList<>();
+    }
 
     public Nivel(int ordem, String nome) {
         this.ordem = ordem;
         this.nome = nome;
-        subnivel = new ArrayList<>();
+        subniveis = new ArrayList<>();
     }
 
-    public Nivel(int ordem, String nome, List<Subnivel> subnivel) {
+    public Nivel(int ordem, String nome, List<Subnivel> subniveis) {
         this.ordem = ordem;
         this.nome = nome;
-        this.subnivel = subnivel;
+        this.subniveis = subniveis;
+    }
+    public List<Subnivel> getSubniveis() {
+        return subniveis;
     }
 
     public int getOrdem() {
@@ -35,10 +42,6 @@ public class Nivel {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public List<Subnivel> getSubnivel() {
-        return subnivel;
     }
 
     @Override
