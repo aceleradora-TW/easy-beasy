@@ -26,35 +26,58 @@ public class Questionario {
         pergunta = new Pergunta(4, "Você sabe qual é o faturamento mensal da empresa?");
         perguntasP2.add(pergunta);
 
-        List<Estagio> estagios = new ArrayList<>();
+        List<Pergunta> perguntasFA1 = new ArrayList<>();
+        pergunta = new Pergunta(1, "Você tem controle sobre as despesas da empresa?");
+        perguntasFA1.add(pergunta);
+        pergunta = new Pergunta(2, "Você reconhece que suas horas de trabalho também entram nos custos da empresa?");
+        perguntasFA1.add(pergunta);
+        pergunta = new Pergunta(3, "Você sabe quais são os custos fixos e variáveis da sua empresa?");
+        perguntasFA1.add(pergunta);
+
+
+        List<Estagio> estagiosOrganizacao = new ArrayList<>();
+        List<Estagio> estagiosFinanceiro = new ArrayList<>();
 
         Estagio estagio = new Estagio();
         estagio.setPerguntas(perguntasP1);
         estagio.setSolucao(
                 "Com base nas suas respostas realizei o diagnóstico e encontrei os seguintes problemas: " + "\n" +
-                "Podemos melhorar alguns pontos na sua gestão de tempo e tarefas. A solução consistirá em como organizar " + "\n" +
-                "suas atividades, definir prazos e metas, além da indicação de algumas ferramentas que poderão complementar a " +
-                "sua rotina. \n" +
-                "https://medium.com/@easybeasybr/gestao-de-tempo-e-tarefas-p1-12a51de24f75\n");
-        estagios.add(estagio);
+                        "Podemos melhorar alguns pontos na sua gestão de tempo e tarefas. A solução consistirá em como organizar " + "\n" +
+                        "suas atividades, definir prazos e metas, além da indicação de algumas ferramentas que poderão complementar a " +
+                        "sua rotina. \n" +
+                        "https://medium.com/@easybeasybr/gestao-de-tempo-e-tarefas-p1-12a51de24f75\n");
+        estagiosOrganizacao.add(estagio);
 
         estagio = new Estagio();
         estagio.setPerguntas(perguntasP2);
         estagio.setSolucao(
                 "Além de fechar o mês no azul é importante saber " +
-                "por quê e como isso aconteceu, caso contrário você poderá se " +
-                "deparar com surpresas e até acabar tendo prejuízo por falta de organização. " +
-                "Para resolver isso vamos te ensinar como fazer um controle fácil de tudo " +
-                "que entra e sai do caixa do seu negócio.\n"+
-                "https://medium.com/@easybeasybr/controle-financeiro-b%C3%A1sico-p2-b1903b79a182\n");
-        estagios.add(estagio);
+                        "por quê e como isso aconteceu, caso contrário você poderá se " +
+                        "deparar com surpresas e até acabar tendo prejuízo por falta de organização. " +
+                        "Para resolver isso vamos te ensinar como fazer um controle fácil de tudo " +
+                        "que entra e sai do caixa do seu negócio.\n" +
+                        "https://medium.com/@easybeasybr/controle-financeiro-b%C3%A1sico-p2-b1903b79a182\n");
+        estagiosOrganizacao.add(estagio);
 
-        Area areaOrganizacao = new Area("Organização");
+        estagio = new Estagio();
+        estagio.setPerguntas(perguntasFA1);
+        estagio.setSolucao(
+                "Custos e despesas são coisas diferentes na hora de gerenciarmos as contas do negócio. " +
+                        "Podemos balancear estes dois conceitos e atingir resultados melhores se pensarmos estrategicamente.\n" +
+                        "https://medium.com/@easybeasybr/custos-e-despesas-fa1-10e123894cf7\n");
+        estagiosFinanceiro.add(estagio);
 
-        Subnivel subnivel = new Subnivel(1, areaOrganizacao, estagios);
+
+        Area areaOrganizacao = new Area("Organizacional");
+        Area areaFinanceiro= new Area ("Financeira");
+
         List<Subnivel> listaSubnivel = new ArrayList<>();
-        listaSubnivel.add(subnivel);
 
+        Subnivel subnivelOrganizacao = new Subnivel(1, areaOrganizacao, estagiosOrganizacao);
+        listaSubnivel.add(subnivelOrganizacao);
+
+        Subnivel subnivelFinanceiro = new Subnivel(1, areaFinanceiro, estagiosFinanceiro);
+        listaSubnivel.add(subnivelFinanceiro);
 
         Nivel nivel = new Nivel(1, "A", listaSubnivel);
         List<Nivel> listaNiveis = new ArrayList<>();
