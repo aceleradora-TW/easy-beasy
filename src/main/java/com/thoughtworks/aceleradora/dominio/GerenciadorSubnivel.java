@@ -30,12 +30,13 @@ public class GerenciadorSubnivel {
 
         if(!gerenciadorArea.getAreas().isEmpty()) {
             for (Area area: gerenciadorArea.getAreas()) {
-                if (entradaArea.equals(gerenciadorArea.getArea())){
+                String recebeNome = area.getNome();
+                if (entradaArea.equals(recebeNome)){
                     return new Subnivel(ordemSubnivel, area);
                 }
             }
         } else {
-            System.out.println(" Ainda não tem nenhuma Área, para cadastrar volto ao menu anterior ");
+            System.out.println(" Ainda não tem nenhuma Área, para cadastrar volte ao menu anterior ");
         }
 
         return null;
@@ -62,7 +63,7 @@ public class GerenciadorSubnivel {
 
     private void editarSubnivel() {
         System.out.println(listarSubniveis());
-        System.out.println("Digite o nome da ordem do subnível que você quer editar");
+        System.out.println("Digite a ordem do subnível que você quer editar");
         int ordemEscolhida = entrada.nextInt();
         entrada.nextLine();
 
