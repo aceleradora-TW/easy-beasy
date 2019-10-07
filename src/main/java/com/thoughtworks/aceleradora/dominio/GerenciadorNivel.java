@@ -49,8 +49,13 @@ public class GerenciadorNivel {
     }
 
     private Nivel criarNivel() {
-        int ordemNumero = validaNivel.defineOrdem(this);
-        String nome="";
+        System.out.println("Digite a ordem: ");
+        String ordemString = entrada.nextLine();
+
+        System.out.println("Digite o nome do nível");
+        String nome = entrada.nextLine();
+
+        int ordemNumero = validaNivel.defineOrdem(this, ordemString);
 
         return new Nivel(ordemNumero, nome);
     }

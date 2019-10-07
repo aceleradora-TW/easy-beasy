@@ -2,14 +2,11 @@ package com.thoughtworks.aceleradora.dominio;
 
 import java.util.Scanner;
 
-public class ValidaNivel {
+public class ValidaNivel extends Validacoes {
 
     Scanner entrada = new Scanner(System.in);
 
-    public int defineOrdem(GerenciadorNivel gerenciadorNivel){
-        String ordemString;
-        System.out.println("Digite a ordem: ");
-        ordemString = entrada.nextLine();
+    public int defineOrdem(GerenciadorNivel gerenciadorNivel, String ordemString){
 
         while (!Validacoes.ehNumero(ordemString)) {
             System.out.println("Ordem inexistente. Digite um número válido!");
