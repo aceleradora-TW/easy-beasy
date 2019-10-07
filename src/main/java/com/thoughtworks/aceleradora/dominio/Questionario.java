@@ -34,6 +34,13 @@ public class Questionario {
         pergunta = new Pergunta(3, "Você sabe quais são os custos fixos e variáveis da sua empresa?");
         perguntasFA1.add(pergunta);
 
+        List<Pergunta> perguntasFA2 = new ArrayList<>();
+        pergunta = new Pergunta(1, "Você sabe quanto custa fazer o seu produto?");
+        perguntasFA2.add(pergunta);
+        pergunta = new Pergunta(2, "Você sabe qual é o custo por mercadoria/serviço vendido?");
+        perguntasFA2.add(pergunta);
+        pergunta = new Pergunta(3, "Você entende que o custo de cada produto pode variar de acordo com a quantidade produzida?");
+        perguntasFA2.add(pergunta);
 
         List<Estagio> estagiosOrganizacao = new ArrayList<>();
         List<Estagio> estagiosFinanceiro = new ArrayList<>();
@@ -67,9 +74,17 @@ public class Questionario {
                         "https://medium.com/@easybeasybr/custos-e-despesas-fa1-10e123894cf7\n");
         estagiosFinanceiro.add(estagio);
 
+        estagio = new Estagio();
+        estagio.setPerguntas(perguntasFA2);
+        estagio.setSolucao(
+                "Entender que a quantidade de produção de serviços e produtos impacta diretamente no custo de cada serviço é fundamental para solucionar problemas financeiros.\n" +
+                        "https://medium.com/@easybeasybr/custo-do-meu-produto-fa2-75d576cb3767\n");
+        estagiosFinanceiro.add(estagio);
+
+
 
         Area areaOrganizacao = new Area("Organizacional");
-        Area areaFinanceiro= new Area ("Financeira");
+        Area areaFinanceiro = new Area("Financeira");
 
         List<Subnivel> listaSubnivel = new ArrayList<>();
 

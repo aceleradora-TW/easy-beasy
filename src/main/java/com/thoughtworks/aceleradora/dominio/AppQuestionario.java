@@ -13,7 +13,7 @@ public class AppQuestionario {
 
         for (Nivel nivel : novoDiagnostico.getNiveis()) {
             for (Subnivel subnivel : nivel.getSubniveis()) {
-                System.out.println( "[Área " + subnivel.getArea().getNome() + "]");
+                System.out.println( "\n[Área " + subnivel.getArea().getNome() + "]");
                 for (Estagio estagio : subnivel.getEstagios()) {
                     System.out.println();
                     int cont = 0;
