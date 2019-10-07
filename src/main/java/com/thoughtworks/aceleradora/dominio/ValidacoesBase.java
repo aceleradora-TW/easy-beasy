@@ -23,6 +23,13 @@ public abstract class ValidacoesBase {
         return erros.isEmpty();
     }
 
+    public static boolean nomeInvalido(String nome) {
+        if (nome.startsWith(" ") || nome.isEmpty())
+            return true;
+
+        return false;
+    }
+
     public String getErros() {
         String mensagensDeErros = "";
 

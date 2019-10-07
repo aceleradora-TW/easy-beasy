@@ -15,10 +15,9 @@ public class ValidadorNivel extends ValidacoesBase {
     }
 
     private void validaNome(String nome) {
-        if (nome.isEmpty()) {
-            erros.add("Nome do nível não pode estar em branco!");
+        if (ValidacoesBase.nomeInvalido(nome)) {
+            erros.add("Nome do nível não pode estar em branco, e não pode começar com espaço!");
         }
     }
-
 }
 
