@@ -6,7 +6,7 @@ public class GerenciadorNivel {
 
     private Scanner entrada;
     private Diagnostico novoDiagnostico;
-    private ValidaNivel validaNivel = new ValidaNivel();
+    private ValidadorNivel validadorNivel = new ValidadorNivel();
 
     public GerenciadorNivel(Diagnostico novoDiagnostico, Scanner entrada) {
         this.novoDiagnostico = novoDiagnostico;
@@ -55,7 +55,7 @@ public class GerenciadorNivel {
         System.out.println("Digite o nome do nível");
         String nome = entrada.nextLine();
 
-        int ordemNumero = validaNivel.defineOrdem(this, ordemString);
+        int ordemNumero = validadorNivel.defineOrdem(this, ordemString);
 
         return new Nivel(ordemNumero, nome);
     }

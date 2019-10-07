@@ -2,7 +2,7 @@ package com.thoughtworks.aceleradora.dominio;
 
 import java.util.Scanner;
 
-public class ValidaNivel extends Validacoes {
+public class ValidadorNivel extends Validacoes {
 
     Scanner entrada = new Scanner(System.in);
 
