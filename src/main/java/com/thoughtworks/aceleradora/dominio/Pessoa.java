@@ -18,9 +18,6 @@ public class Pessoa {
 
     private String sobrenome;
 
-    private Pessoa() {
-    }
-
     public Pessoa(String nome, String sobrenome) {
         this.nome = nome;
         this.sobrenome = sobrenome;
