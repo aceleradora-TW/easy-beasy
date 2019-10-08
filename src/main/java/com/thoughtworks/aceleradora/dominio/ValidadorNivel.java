@@ -2,7 +2,7 @@ package com.thoughtworks.aceleradora.dominio;
 
 import java.util.List;
 
-public class ValidadorNivel extends ValidacoesBase {
+public class ValidadorNivel extends ValidadorBase {
 
     @Override
     public void validar(String ordem, String nome, List<Nivel> niveis) {

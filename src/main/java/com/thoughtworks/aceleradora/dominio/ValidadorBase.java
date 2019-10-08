@@ -3,7 +3,7 @@ package com.thoughtworks.aceleradora.dominio;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class ValidacoesBase {
+public abstract class ValidadorBase {
 
     protected final List<String> erros = new ArrayList<>();
 
