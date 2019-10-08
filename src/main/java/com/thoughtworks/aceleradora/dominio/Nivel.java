@@ -15,7 +15,7 @@ public class Nivel {
     public Nivel(int ordem, String nome) {
         this.ordem = ordem;
         this.nome = nome;
-        subniveis = new ArrayList<>();
+        this.subniveis = new ArrayList<>();
     }
     public List<Subnivel> getSubniveis() {
         return subniveis;
