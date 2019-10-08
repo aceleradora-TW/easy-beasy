@@ -1,10 +1,6 @@
 package com.thoughtworks.aceleradora;
 
 import com.thoughtworks.aceleradora.dominio.*;
-import com.thoughtworks.aceleradora.dominio.Diagnostico;
-import com.thoughtworks.aceleradora.dominio.GerenciadorNivel;
-import com.thoughtworks.aceleradora.dominio.GerenciadorSubnivel;
-import com.thoughtworks.aceleradora.dominio.Nivel;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.ArrayList;
@@ -23,7 +19,6 @@ public class App {
         Subnivel novoSubnivel = new Subnivel();
         Nivel novoNivel = new Nivel();
         List<Area> areas = new ArrayList<>();
-
         GerenciadorNivel gerenciadorNivel = new GerenciadorNivel(novoDiagnostico, entrada);
         GerenciadorEstagio gerenciadorEstagio = new GerenciadorEstagio(entrada, novoSubnivel);
         GerenciadorArea gerenciadorArea = new GerenciadorArea(areas, entrada);

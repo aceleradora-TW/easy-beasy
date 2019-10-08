@@ -29,8 +29,7 @@ public class GerenciadorPergunta {
             for (Pergunta pergunta : novoEstagio.getPerguntas()) {
                 System.out.println("\n" + pergunta.getOrdem() + " " + pergunta.getDescricao());
             }
-        }
-        else{
+        } else {
             System.out.println("\nSem perguntas adicionadas para listar.");
         }
     }

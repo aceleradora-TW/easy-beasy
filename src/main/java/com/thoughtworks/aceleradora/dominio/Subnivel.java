@@ -21,7 +21,7 @@ public class Subnivel {
         return ordem;
     }
 
-    public Area getArea(){
+    public Area getArea() {
         return area;
     }
 

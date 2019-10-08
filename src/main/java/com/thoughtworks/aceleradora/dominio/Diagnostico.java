@@ -10,7 +10,7 @@ public class Diagnostico {
         niveis = new ArrayList<>();
     }
 
-    public List<Nivel> getNiveis(){
+    public List<Nivel> getNiveis() {
         return niveis;
     }
 }

@@ -12,19 +12,67 @@ public class GerenciadorNivel {
         this.entrada = entrada;
     }
 
+    public void menuNivel() {
+        int opcao;
+        do {
+            System.out.println("Digite a opção desejada");
+            System.out.println("1 - Criar nível");
+            System.out.println("2 - Listar níveis criados");
+            System.out.println("3 - Editar nivel");
+            System.out.println("4 - Remover nivel");
+            System.out.println("0 - Sair");
+            opcao = entrada.nextInt();
+            entrada.nextLine();
+
+            switch (opcao) {
+                case 1:
+                    adicionarNivel();
+                    break;
+                case 2:
+                    System.out.println(listarNiveis());
+                    break;
+                case 3:
+                    editarNivel();
+                    break;
+                case 4:
+                    removerNivel();
+                    break;
+                case 0:
+                    System.out.println("Retornando ao menu inicial");
+                    break;
+                default:
+                    System.out.println("Opção inválida");
+                    break;
+            }
+        } while (opcao != 0);
+    }
+
     private Nivel criarNivel() {
-        System.out.println("Digite a ordem");
-        int ordem = entrada.nextInt();
-        entrada.nextLine();
+        System.out.println("Digite a ordem: ");
+        String ordemString = entrada.nextLine();
 
         System.out.println("Digite o nome do nível");
         String nome = entrada.nextLine();
-        return new Nivel(ordem, nome);
+
+        ValidadorNivel validadorNivel = new ValidadorNivel();
+        validadorNivel.validar(ordemString, nome, novoDiagnostico.getNiveis());
+
+        if (!validadorNivel.ehValida()) {
+            System.out.println(validadorNivel.getErros());
+            return null;
+        }
+
+        return new Nivel(Integer.parseInt(ordemString), nome);
     }
 
     private void adicionarNivel() {
-
-        novoDiagnostico.getNiveis().add(criarNivel());
+        Nivel umNivel = criarNivel();
+        if (umNivel != null) {
+            novoDiagnostico.getNiveis().add(umNivel);
+            System.out.println("Nível criado com sucesso.");
+        } else {
+            System.out.println("Operação cancelada.");
+        }
     }
 
     private String listarNiveis() {
@@ -69,47 +117,12 @@ public class GerenciadorNivel {
         System.out.println("Qual o nome do nivel que você deseja remover?");
         String nomeNivel = entrada.nextLine();
 
-        for (int i = 0; i <novoDiagnostico.getNiveis().size() ; i++) {
+        for (int i = 0; i < novoDiagnostico.getNiveis().size(); i++) {
             if (nomeNivel.equals(novoDiagnostico.getNiveis().get(i).getNome())) {
                 novoDiagnostico.getNiveis().remove(i);
                 break;
             }
         }
-    }
-
-    public void menuNivel() {
-        int opcao;
-        do {
-            System.out.println("Digite a opção desejada");
-            System.out.println("1 - Criar nível");
-            System.out.println("2 - Listar níveis criados");
-            System.out.println("3 - Editar nivel");
-            System.out.println("4 - Remover nivel");
-            System.out.println("0 - Sair");
-            opcao = entrada.nextInt();
-            entrada.nextLine();
-
-            switch (opcao) {
-                case 1:
-                    adicionarNivel();
-                    break;
-                case 2:
-                    System.out.println(listarNiveis());
-                    break;
-                case 3:
-                    editarNivel();
-                    break;
-                case 4:
-                    removerNivel();
-                    break;
-                case 0:
-                    System.out.println("Retornando ao menu inicial");
-                    break;
-                default:
-                    System.out.println("Opção inválida");
-                    break;
-            }
-        } while (opcao != 0);
     }
 }
 
