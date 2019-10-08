@@ -11,13 +11,13 @@ public class ValidadorNivel extends ValidacoesBase {
     }
 
     private void validaOrdem(String ordem) {
-        if (!ValidacoesBase.ehNumero(ordem)){
+        if (!ehNumero(ordem)){
             erros.add("Ordem deve ser um número!");
         }
     }
 
     private void validaNome(String nome, List<Nivel> niveis) {
-        if (ValidacoesBase.nomeInvalido(nome)) {
+        if (nomeInvalido(nome)) {
             if (nome.isEmpty()){
                 erros.add("Nome do nível não pode estar em branco");
             }
@@ -25,7 +25,7 @@ public class ValidadorNivel extends ValidacoesBase {
                 erros.add("Nome do nível não pode começar com espaço!");
             }
         }
-        else if(ValidacoesBase.nomeRepetido(nome, niveis)) {
+        else if(nomeRepetido(nome, niveis)) {
             erros.add("Esse nome já existe");
         }
     }
